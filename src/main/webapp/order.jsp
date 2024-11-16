@@ -11,7 +11,7 @@
 <%
 User u2 = (User) session.getAttribute("activeUser");
 if (u2 == null) {
-	Message message = new Message("You are not logged in! Login first!!", "error", "alert-danger");
+	Message message = new Message("Bạn chưa đăng nhập, vui lòng đăng nhập!!", "error", "alert-danger");
 	session.setAttribute("message", message);
 	response.sendRedirect("login.jsp");
 	return;  
@@ -28,25 +28,25 @@ List<Order> orderList = orderDao.getAllOrderByUserId(u2.getUserId());
 	<div class="container mt-5 mb-5 text-center">
 		<img src="Images/empty-cart.png" style="max-width: 200px;"
 			class="img-fluid">
-		<h4 class="mt-3">Zero Order found</h4>
-		Looks like you haven't placed any order!
+		<h4 class="mt-3">Chưa có đơn hàng</h4>
+		Có vẻ như bạn chưa mua đơn hàng nào!
 	</div>
 	<%
 	} else {
 	%>
-	<h4>My Order</h4>
+	<h4>Đơn hàng của tôi</h4>
 	<hr>
 	<div class="container">
 		<table class="table table-hover">
 			<tr class="text-center table-secondary">
-			  <th>Product</th>
-			  <th>Order ID</th>
-			  <th>Name</th>
-			  <th>Quantity</th>
-			  <th>Total Price</th>
-			  <th>Date and Time</th>
-			  <th>Payment Type</th>
-			  <th>Status</th>
+			  <th>Sản phẩm</th>
+			  <th>Mã đơn hàng</th>
+			  <th>Tên</th>
+			  <th>Số lượng</th>
+			  <th>Tổng tiền</th>
+			  <th>Ngày mua</th>
+			  <th>Phương thức thanh toán</th>
+			  <th>Trạng thái</th>
 			</tr>
 			<%
 			for (Order order : orderList) {

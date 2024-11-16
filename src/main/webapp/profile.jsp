@@ -5,22 +5,18 @@
 <%
 User activeUser = (User) session.getAttribute("activeUser");
 if (activeUser == null) {
-	Message message = new Message("You are not logged in! Login first!!", "error", "alert-danger");
+	Message message = new Message("Bạn chưa đăng nhập, vui lòng đăng nhập!!", "error", "alert-danger");
 	session.setAttribute("message", message);
 	response.sendRedirect("login.jsp");
 	return;  
 }
 %>  
 
-
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>My Profile</title>
+<title>Thông tin cá nhân</title>
 <%@include file="Components/common_css_js.jsp"%>
 <style>
 .cus-active {
@@ -53,7 +49,7 @@ if (activeUser == null) {
 							</div>
 						</div>
 						<div class="col-md-8">
-							Hello, <br>
+							Xin chào, <br>
 							<h5><%=activeUser.getUserName()%></h5>
 						</div>
 					</div>  
@@ -63,16 +59,14 @@ if (activeUser == null) {
 					<div class="list-group">
 						<button type="button" id="profile-btn"
 							class="list-group-item list-group-item-action cus-active list-btn"
-							aria-current="true">Profile Information</button>
+							aria-current="true">Thông tin cá nhân</button>
 						<button type="button" id="wishlist-btn"
-							class="list-group-item list-group-item-action list-btn">My
-							Wishlist</button>
+							class="list-group-item list-group-item-action list-btn">Danh sách yêu thích</button>
 						<button type="button" id="order-btn"
-							class="list-group-item list-group-item-action list-btn">My
-							Orders</button>
+							class="list-group-item list-group-item-action list-btn">Đơn hàng của tôi</button>
 						<button type="button" id="logout-btn"
 							class="list-group-item list-group-item-action list-btn"
-							onclick="window.open('LogoutServlet?user=user', '_self')">Logout</button>
+							onclick="window.open('LogoutServlet?user=user', '_self')">Đăng xuất</button>
 					</div>
 				</div>
 			</div>

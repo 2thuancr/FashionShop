@@ -14,7 +14,7 @@ if (activeAdmin == null) {
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Update Category</title>
+<title>Cập nhật danh mục</title>
 <%@include file="Components/common_css_js.jsp"%>
 </head>
 <body>
@@ -31,29 +31,31 @@ if (activeAdmin == null) {
 			<div class="col">
 				<div class="card w-75">
 					<div class="card-header text-center">
-						<h3>Edit Category</h3>
+						<h3>Chỉnh sửa danh mục</h3>
 					</div>
 					<form action="AddOperationServlet?cid=<%=cid%>" method="post"
 						enctype="multipart/form-data">
 						<div class="card-body">
 							<input type="hidden" name="operation" value="updateCategory">
 							<div class="mb-3">
-								<label class="form-label"><b>Category Name</b></label> <input
+								<label class="form-label"><b>Tên danh mục</b></label> 
+								<input
 									type="text" name="category_name" value="<%=category.getCategoryName()%>" class="form-control" >
 							</div>
 							<div class="mb-3">
-								<label class="form-label"><b>Category
-										Image</b></label><input class="form-control" type="file" name="category_img">
+								<label class="form-label"><b>Ảnh danh mục</b></label>
+								<input class="form-control" type="file" name="category_img">
 							</div>
 							<div class="mb-3">
-								<label class="form-label"><b>Uploaded Image:&nbsp;</b></label><%=category.getCategoryImage()%>&emsp;<img
+								<label class="form-label"><b>Tải ảnh lên:&nbsp;</b></label><%=category.getCategoryImage()%>&emsp;
+									<img
 									src="Product_imgs\<%=category.getCategoryImage()%>"
 									style="width: 80px; height: 80px; width: auto;">
 								<input type="hidden" name="image" value="<%=category.getCategoryImage()%>">
 							</div>
 						</div>
 						<div class="card-footer text-center">
-							<button type="submit" class="btn btn-lg btn-primary me-3">Update</button>
+							<button type="submit" class="btn btn-lg btn-primary me-3">Cập nhật</button>
 						</div>
 					</form>
 				</div>

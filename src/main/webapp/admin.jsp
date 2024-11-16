@@ -14,7 +14,7 @@ if (activeAdmin == null) {
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Admin Page</title>
+<title>Trang quản lý</title>
 <%@include file="Components/common_css_js.jsp"%>
 <style type="text/css">
 .cus-active {
@@ -52,7 +52,7 @@ a {
 				<img src="Images/admin.png" style="max-width: 180px;"
 					class="img-fluid">
 				<h3>
-					Welcome "<%=activeAdmin.getName()%>"
+					Chào mừng "<%=activeAdmin.getName()%>"
 				</h3>
 			</div>
 		</div>
@@ -64,7 +64,7 @@ a {
 							<div class="card-body">
 								<img src="Images/categories.png" style="max-width: 80px;"
 									class="img-fluid">
-								<h4 class="card-title mt-3">Category</h4>
+								<h4 class="card-title mt-3">Danh mục</h4>
 							</div>
 						</div>
 					</a>
@@ -75,7 +75,7 @@ a {
 							<div class="card-body">
 								<img src="Images/products.png" style="max-width: 80px;"
 									class="img-fluid">
-								<h4 class="card-title mt-3">Products</h4>
+								<h4 class="card-title mt-3">Sản phẩm</h4>
 							</div>
 						</div>
 					</a>
@@ -86,7 +86,7 @@ a {
 							<div class="card-body">
 								<img src="Images/order.png" style="max-width: 80px;"
 									class="img-fluid">
-								<h4 class="card-title mt-3">Order</h4>
+								<h4 class="card-title mt-3">Đơn hàng</h4>
 							</div>
 						</div>
 					</a>
@@ -101,7 +101,7 @@ a {
 							<div class="card-body">
 								<img src="Images/users.png" style="max-width: 80px;"
 									class="img-fluid">
-								<h4 class="card-title mt-3">User's</h4>
+								<h4 class="card-title mt-3">Khách hàng</h4>
 							</div>
 						</div>
 					</a>
@@ -112,7 +112,7 @@ a {
 							<div class="card-body">
 								<img src="Images/add-admin.png" style="max-width: 80px;"
 									class="img-fluid">
-								<h4 class="card-title mt-3">Admin</h4>
+								<h4 class="card-title mt-3">Quản lý</h4>
 							</div>
 						</div>
 					</a>
@@ -128,8 +128,7 @@ a {
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h1 class="modal-title fs-5" id="addCategoryModalLabel">Add
-						Category Here</h1>
+					<h1 class="modal-title fs-5" id="addCategoryModalLabel">Thêm danh mục</h1>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
@@ -139,21 +138,21 @@ a {
 						<input type="hidden" name="operation" value="addCategory">
 
 						<div class="mb-3">
-							<label class="form-label"><b>Category Name</b></label> <input
+							<label class="form-label"><b>Tên danh mục</b></label> 
+							<input
 								type="text" name="category_name"
 								placeholder="Enter category here" class="form-control" required>
 						</div>
 						<div class="mb-3">
-							<label for="formFile" class="form-label"><b>Category
-									Image</b></label> <input class="form-control" type="file"
+							<label for="formFile" class="form-label"><b>Hinh ảnh</b></label> 
+							<input class="form-control" type="file"
 								name="category_img" id="formFile">
 						</div>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary"
-							data-bs-dismiss="modal">Close</button>
-						<button type="submit" class="btn btn-primary me-3">Add
-							Category</button>
+							data-bs-dismiss="modal">Đóng</button>
+						<button type="submit" class="btn btn-primary me-3">Thêm danh mục</button>
 					</div>
 				</form>
 			</div>
@@ -167,8 +166,7 @@ a {
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h1 class="modal-title fs-5" id="addProductModalLabel">Add
-						Product Here</h1>
+					<h1 class="modal-title fs-5" id="addProductModalLabel">Thêm sản phẩm</h1>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
@@ -177,37 +175,42 @@ a {
 					<div class="modal-body">
 						<input type="hidden" name="operation" value="addProduct">
 						<div>
-							<label class="form-label"><b>Product Name</b></label> <input
-								type="text" name="name" placeholder="Enter product name"
+							<label class="form-label"><b>Tên sản phẩm</b></label> 
+							<input
+								type="text" name="name" placeholder="Tên sản phẩm"
 								class="form-control" required>
 						</div>
 						<div class="mb-2">
-							<label class="form-label"><b>Product Description</b></label>
+							<label class="form-label"><b>Mô tả sản phẩm</b></label>
 							<textarea class="form-control" name="description" rows="4"
-								placeholder="Enter product description"></textarea>
+								placeholder="Mô tả sản phẩm"></textarea>
 						</div>
 						<div class="row">
 							<div class="col-md-6 mb-2">
-								<label class="form-label"><b>Unit Price</b></label> <input
-									type="number" name="price" placeholder="Enter price"
+								<label class="form-label"><b>Giá sản phẩm</b></label> 
+								<input
+									type="number" name="price" placeholder="Nhập giá"
 									class="form-control" required>
 							</div>
 							<div class="col-md-6 mb-2">
-								<label class="form-label"><b>Discount Percentage</b></label> <input
+								<label class="form-label"><b>Phần trăm khuyến mãi</b></label> 
+								<input
 									type="number" name="discount" onblur="validate()"
-									placeholder="Enter discount if any!" class="form-control">
+									placeholder="Nhập nếu có khuyến mãi!" class="form-control">
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-md-6 mb-2">
-								<label class="form-label"><b>Product Quantity</b></label> <input
+								<label class="form-label"><b>Số lượng sản phẩm</b></label> 
+								<input
 									type="number" name="quantity"
-									placeholder="Enter product quantity" class="form-control">
+									placeholder="Nhập số lượng sản phẩm" class="form-control">
 							</div>
 							<div class="col-md-6 mb-2">
-								<label class="form-label"><b>Select Category Type</b></label> <select
+								<label class="form-label"><b>Chọn loại danh mục</b></label> 
+								<select
 									name="categoryType" class="form-control">
-									<option value="0">--Select Category--</option>
+									<option value="0"></option>
 									<%
 									for (Category c : categoryList) {
 									%>
@@ -220,15 +223,15 @@ a {
 							</div>
 						</div>
 						<div class="mb-2">
-							<label class="form-label"><b>Product Image</b></label> <input
+							<label class="form-label"><b>Hình ảnh sản phẩm</b></label> 
+							<input
 								type="file" name="photo" class="form-control" required>
 						</div>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary"
-							data-bs-dismiss="modal">Close</button>
-						<button type="submit" class="btn btn-primary me-3">Add
-							Product</button>
+							data-bs-dismiss="modal">Đóng</button>
+						<button type="submit" class="btn btn-primary me-3">Thêm sản phẩm</button>
 					</div>
 				</form>
 			</div>

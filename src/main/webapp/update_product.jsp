@@ -16,7 +16,7 @@ if (activeAdmin == null) {
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Update Product</title>
+<title>Cập nhật sản phẩm</title>
 <%@include file="Components/common_css_js.jsp"%>
 </head>
 <body>
@@ -34,7 +34,7 @@ if (activeAdmin == null) {
 			<div class="col">
 				<div class="card">
 					<div class="card-header text-center">
-						<h3>Edit Product</h3>
+						<h3>Chỉnh sửa sản phẩm</h3>
 					</div>
 					<form action="AddOperationServlet?pid=<%=pid%>" method="post"
 						name="updateProductForm" enctype="multipart/form-data">
@@ -42,41 +42,41 @@ if (activeAdmin == null) {
 							<input type="hidden" name="operation" value="updateProduct">
 							<div class="row">
 								<div class="col-md-6 mb-2">
-									<label class="form-label"><b>Product Name</b></label> <input
+									<label class="form-label"><b>Tên sản phẩm</b></label> <input
 										type="text" name="name" value="<%=product.getProductName()%>"
 										class="form-control">
 								</div>
 								<div class="col-md-6 mb-2">
-									<label class="form-label"><b>Unit Price</b></label> <input
+									<label class="form-label"><b>Giá</b></label> <input
 										class="form-control" type="number" name="price"
 										value="<%=product.getProductPrice()%>" required>
 								</div>
 							</div>
 							<div class="mb-2">
-								<label class="form-label"><b>Product Description</b></label>
+								<label class="form-label"><b>Mô tả</b></label>
 								<textarea class="form-control" name="description" rows="3"><%=product.getProductDescription()%></textarea>
 							</div>
 							<div class="row">
 								<div class="col-md-6 mb-2">
-									<label class="form-label"><b>Product Quantity</b></label> <input
+									<label class="form-label"><b>Số lượng</b></label> <input
 										type="number" name="quantity"
 										value="<%=product.getProductQunatity()%>" class="form-control">
 								</div>
 								<div class="col-md-6 mb-2">
-									<label class="form-label"><b>Discount Percentage</b></label> <input
+									<label class="form-label"><b>Phần trăm giảm giá</b></label> <input
 										type="number" name="discount" onblur="validate()"
 										value="<%=product.getProductDiscount()%>" class="form-control">
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-6 mb-2">
-									<label class="form-label"><b>Product Image</b></label><input
+									<label class="form-label"><b>Hình ảnh</b></label><input
 										class="form-control" type="file" name="product_img">
 								</div>
 								<div class="col-md-6 mb-2">
-									<label class="form-label"><b>Select Category Type</b></label> <select
+									<label class="form-label"><b>Chọn danh mục</b></label> <select
 										name="categoryType" class="form-control">
-										<option value="0">--Select Category--</option>
+										<option value="0"></option>
 										<%
 										for (Category c : categoryList) {
 										%>
@@ -90,7 +90,7 @@ if (activeAdmin == null) {
 								</div>
 							</div>
 							<div class="mb-3">
-								<label class="form-label"><b>Uploaded Image:&nbsp;</b></label><%=product.getProductImages()%>
+								<label class="form-label"><b>Tải ảnh lên:&nbsp;</b></label><%=product.getProductImages()%>
 								&emsp;<img src="Product_imgs\<%=product.getProductImages()%>"
 									style="width: 80px; height: 80px; width: auto;"> <input
 									type="hidden" name="image"
@@ -98,7 +98,7 @@ if (activeAdmin == null) {
 							</div>
 						</div>
 						<div class="card-footer text-center">
-							<button type="submit" class="btn btn-lg btn-primary me-3">Update</button>
+							<button type="submit" class="btn btn-lg btn-primary me-3">Cập nhật</button>
 						</div>
 					</form>
 				</div>
@@ -111,7 +111,7 @@ if (activeAdmin == null) {
 		function validate() {
 			var dis = document.updateProductForm.discount.value;
 			if (dis > 100 || dis < 0) {
-				alert("Discount need tobe between 0-100 !");
+				alert("Phần trăm giảm giá phải trong khoảng 0-100 !");
 				return false;
 			}
 		}

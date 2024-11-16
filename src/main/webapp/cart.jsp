@@ -18,7 +18,7 @@ if (activeUser == null) {
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Shopping cart</title>
+<title>Giỏ hàng</title>
 <%@include file="Components/common_css_js.jsp"%>
 <style type="text/css">
 .qty {
@@ -46,10 +46,9 @@ if (activeUser == null) {
 	<div class="container text-center py-5 px-5">
 		<img src="Images/empty-cart.png" style="max-width: 250px;"
 			class="img-fluid">
-		<h4 class="mt-5">Your cart is empty!</h4>
-		<p>Add items to it now.</p>
+		<h4 class="mt-5">Bạn chưa có sản phẩm nào trong giỏ hàng!</h4>
 		<a href="products.jsp" class="btn btn-primary btn-lg" role="button"
-			aria-disabled="true">Shop Now</a>
+			aria-disabled="true">Mua ngay</a>
 	</div>
 	<%
 	} else {
@@ -61,12 +60,12 @@ if (activeUser == null) {
 			<table class="table table-hover">
 				<thead>
 					<tr class="table-primary text-center" style="font-size: 18px;">
-						<th>Item</th>
-						<th>Item Name</th>
-						<th>Price</th>
-						<th>Quantity</th>
-						<th>Total price</th>
-						<th>Remove</th>
+						<th>Ảnh</th>
+						<th>Tên Sản phẩm</th>
+						<th>Giá</th>
+						<th>Số lượng</th>
+						<th>Tổng tiền</th>
+						<th>Xóa</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -103,7 +102,7 @@ if (activeUser == null) {
 						<td>&#8363;<%=c.getQuantity() * prod.getProductPriceAfterDiscount()%></td>
 						<td><a
 							href="CartOperationServlet?cid=<%=c.getCartId()%>&opt=3"
-							class="btn btn-secondary" role="button">Remove</a></td>
+							class="btn btn-secondary" role="button">Xóa</a></td>
 					</tr>
 					<%
 					totalPrice += c.getQuantity() * prod.getProductPriceAfterDiscount();
@@ -111,16 +110,16 @@ if (activeUser == null) {
 					%>
 					<tr>
 						<td class="text-end" colspan="8"><h4 class='pe-5'>
-								Total Amount : &#8363;
+								Thành tiền: &#8363;
 								<%=totalPrice%></h4></td>
 					</tr>
 				</tbody>
 			</table>
 			<div class="text-end">
 				<a href="products.jsp" class="btn btn-outline-primary" role="button"
-					aria-disabled="true">Continue Shopping</a>&nbsp; 
+					aria-disabled="true">Tiếp tục mua sắm</a>&nbsp; 
 					<a href="checkout.jsp" id="checkout-btn"
-					class="btn btn-outline-primary" role="button" aria-disabled="true">Checkout</a>
+					class="btn btn-outline-primary" role="button" aria-disabled="true">Thanh toán</a>
 			</div>
 
 		</div>

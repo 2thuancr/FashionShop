@@ -16,7 +16,7 @@ List<Admin> adminList = adminDao.getAllAdmin();
 <html>
 <head>
 <meta charset="UTF-8">
-<title>View Admin's</title>
+<title>Xem danh sách Quản lý</title>
 <%@include file="Components/common_css_js.jsp"%>
 <style>
 label {
@@ -37,33 +37,37 @@ label {
 							<img src="Images/admin.png" style="max-width: 100px;"
 								class="img-fluid">
 						</div>
-						<h3 class="text-center">Add Admin</h3>
+						<h3 class="text-center">Thêm Quản lý</h3>
 						<%@include file="Components/alert_message.jsp"%>
 
 						<!--admin-form-->
 						<form action="AdminServlet?operation=save" method="post">
 							<div class="mb-3">
-								<label class="form-label">Name</label> <input type="text"
-									name="name" placeholder="Enter name" class="form-control"
+								<label class="form-label">Tên</label> 
+								<input type="text"
+									name="name" placeholder="Họ và Tên" class="form-control"
 									required>
 							</div>
 							<div class="mb-3">
-								<label class="form-label">Email</label> <input type="email"
-									name="email" placeholder="Email address" class="form-control"
+								<label class="form-label">Email</label> 
+								<input type="email"
+									name="email" placeholder="Email" class="form-control"
 									required>
 							</div>
 							<div class="mb-3">
-								<label class="form-label">Password</label> <input
-									type="password" name="password" placeholder="Enter password"
+								<label class="form-label">Mật khẩu</label> 
+								<input
+									type="password" name="password" placeholder="Mật khẩu"
 									class="form-control" required>
 							</div>
 							<div class="mb-3">
-								<label class="form-label">Phone</label> <input type="number"
-									name="phone" placeholder="Enter phone number"
+								<label class="form-label">Số điện thoại</label> 
+								<input type="number"
+									name="phone" placeholder="Số điện thoại"
 									class="form-control" required>
 							</div>
 							<div class="d-grid gap-2 col-6 mx-auto py-3">
-								<button type="submit" class="btn btn-primary me-3">Register</button>
+								<button type="submit" class="btn btn-primary me-3">Thêm</button>
 							</div>
 						</form>
 					</div>
@@ -75,10 +79,10 @@ label {
 					<div class="card-body px-3">
 						<table class="table table-hover">
 							<tr class="text-center table-primary" style="font-size: 18px;">
-								<th>Name</th>
+								<th>Tên</th>
 								<th>Email</th>
-								<th>Phone</th>
-								<th>Action</th>
+								<th>Số điện thoại</th>
+								<th>Hành động</th>
 							</tr>
 							<%
 							for (Admin a : adminList) {
@@ -87,7 +91,7 @@ label {
 								<td><%=a.getName() %></td>
 								<td><%=a.getEmail() %></td>
 								<td><%=a.getPhone() %></td>
-								<td><a href="AdminServlet?operation=delete&id=<%=a.getId()%>" role="button" class="btn btn-danger">Remove</a></td>
+								<td><a href="AdminServlet?operation=delete&id=<%=a.getId()%>" role="button" class="btn btn-danger">Xóa</a></td>
 							</tr>
 							<%
 							}

@@ -19,7 +19,7 @@ ProductDao productDao = new ProductDao(ConnectionProvider.getConnection());
 <html>
 <head>
 <meta charset="UTF-8">
-<title>View Product's</title>
+<title>Xem sản phẩm</title>
 <%@include file="Components/common_css_js.jsp"%>
 </head>
 <body>
@@ -31,13 +31,13 @@ ProductDao productDao = new ProductDao(ConnectionProvider.getConnection());
 		<%@include file="Components/alert_message.jsp"%>
 		<table class="table table-hover">
 			<tr class="table-primary text-center" style="font-size: 20px;">
-				<th>Image</th>
-				<th>Name</th>
-				<th class="text-start">Category</th>
-				<th>Price</th>
-				<th class="text-start">Quantity</th>
-				<th class="text-start">Discount</th>
-				<th>Action</th>
+				<th>Hình ảnh</th>
+				<th>Tên</th>
+				<th class="text-start">Danh mục</th>
+				<th>Giá</th>
+				<th class="text-start">Số lượng</th>
+				<th class="text-start">Giảm giá</th>
+				<th>Hành động</th>
 			</tr>
 			<%
 			List<Product> productList = productDao.getAllProducts();
@@ -52,9 +52,11 @@ ProductDao productDao = new ProductDao(ConnectionProvider.getConnection());
 				<td>&#8363;<%=prod.getProductPriceAfterDiscount()%></td>
 				<td><%=prod.getProductQunatity()%></td>
 				<td><%=prod.getProductDiscount()%>%</td>
-				<td><a href="update_product.jsp?pid=<%=prod.getProductId()%>" role="button" class="btn btn-secondary">Update</a>&emsp;<a
+				<td>
+					<a href="update_product.jsp?pid=<%=prod.getProductId()%>" role="button" class="btn btn-secondary">Cập nhật</a>&emsp;
+					<a
 					href="AddOperationServlet?pid=<%=prod.getProductId()%>&operation=deleteProduct"
-					class="btn btn-danger" role="button">Delete</a></td>
+					class="btn btn-danger" role="button">Xóa</a></td>
 			</tr>
 			<%
 			}

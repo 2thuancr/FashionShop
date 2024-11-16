@@ -25,7 +25,7 @@ UserDao userDao = new UserDao(ConnectionProvider.getConnection());
 <html>
 <head>
 <meta charset="UTF-8">
-<title>View Order's</title>
+<title>Xem đơn hàng</title>
 <%@include file="Components/common_css_js.jsp"%>
 </head>
 <body>
@@ -41,7 +41,7 @@ UserDao userDao = new UserDao(ConnectionProvider.getConnection());
 		<div class="container mt-5 mb-5 text-center">
 			<img src="Images/empty-cart.png" style="max-width: 200px;"
 				class="img-fluid">
-			<h4 class="mt-3">Zero Order found</h4>
+			<h4 class="mt-3">Không tìm thấy đơn hàng</h4>
 		</div>
 		<%
 		} else {
@@ -49,14 +49,14 @@ UserDao userDao = new UserDao(ConnectionProvider.getConnection());
 		<div class="container-fluid">
 			<table class="table table-hover">
 				<tr class="table-primary" style="font-size: 18px;">
-					<th class="text-center">Product</th>
-					<th>Order ID</th>
-					<th>Product Details</th>
-					<th>Delivery Address</th>
-					<th>DateTime</th>
-					<th>Payment Type</th>
-					<th>Status</th>
-					<th colspan="2" class="text-center">Action</th>
+					<th class="text-center">Sản phẩm</th>
+					<th>Mã hóa đơn</th>
+					<th>Chi tiết sản phẩm</th>
+					<th>Địa chỉ giao hàng</th>
+					<th>Ngày mua</th>
+					<th>Phương thức thanh toán</th>
+					<th>Trạng thái</th>
+					<th colspan="2" class="text-center">Hành động</th>
 				</tr>
 				<%
 				for (Order order : orderList) {
@@ -70,28 +70,33 @@ UserDao userDao = new UserDao(ConnectionProvider.getConnection());
 						src="Product_imgs\<%=orderProduct.getImage()%>"
 						style="width: 50px; height: 50px; width: auto;"></td>
 					<td><%=order.getOrderId()%></td>
-					<td><%=orderProduct.getName()%><br>Quantity: <%=orderProduct.getQuantity()%><br>Total
-						Price: &#8363;<%=orderProduct.getPrice() * orderProduct.getQuantity()%></td>
-					<td><%=userDao.getUserName(order.getUserId())%><br>Mobile No. <%=userDao.getUserPhone(order.getUserId())%><br><%=userDao.getUserAddress(order.getUserId())%></td>
+					<td><%=orderProduct.getName()%>
+						<br>Số lượng: <%=orderProduct.getQuantity()%>
+						<br>Tổng tiền: &#8363;<%=orderProduct.getPrice() * orderProduct.getQuantity()%>
+					</td>
+					<td><%=userDao.getUserName(order.getUserId())%>
+						<br>Số điện thoại <%=userDao.getUserPhone(order.getUserId())%>
+						<br><%=userDao.getUserAddress(order.getUserId())%>
+					</td>
 					<td><%=order.getDate()%></td>
 					<td><%=order.getPayementType()%></td>
 					<td><%=order.getStatus()%></td>
 					<td><select id="operation" name="status" class="form-select">
-							<option>--Select Operation--</option>
-							<option value="Order Confirmed">Order Confirmed</option>
-							<option value="Shipped">Shipped</option>
-							<option value="Out For Delivery">Out For Delivery</option>
-							<option value="Delivered">Delivered</option>
+							<option></option>
+							<option value="OrderConfirmed">Đã xác nhận đơn hàng</option>
+							<option value="Shipped">Đã giao hàng</option>
+							<option value="OutForDelivery">Đang vận chuyển </option>
+							<option value="Delivered">Vận chuyển thành công</option>
 					</select></td>
 					<td>
 						<%
 						if (order.getStatus().equals("Delivered")) {
 						%>
-						<button type="submit" class="btn btn-success disabled">Update</button>
+						<button type="submit" class="btn btn-success disabled">Cập nhật</button>
 						<%
 						} else {
 						%>
-						<button type="submit" class="btn btn-secondary">Update</button> 
+						<button type="submit" class="btn btn-secondary">Cập nhật</button> 
 						<%
 						 }
 						 %>

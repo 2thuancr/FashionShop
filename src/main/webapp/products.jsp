@@ -134,12 +134,12 @@ if (prodList != null && prodList.size() == 0) {
 						<div class="container text-center">
 							<span class="real-price">&#8363;<%=p.getProductPriceAfterDiscount()%></span>&ensp;
 							<span class="product-price">&#8363;<%=p.getProductPrice()%></span>&ensp;
-							<span class="product-discount"><%=p.getProductDiscount()%>&#37;off</span>
+							<span class="product-discount">-<%=p.getProductDiscount()%>&#37;</span>
 						</div>
 						<div class="container text-center mb-2 mt-2">
 							<button type="button"
 								onclick="window.open('viewProduct.jsp?pid=<%=p.getProductId()%>', '_self')"
-								class="btn btn-primary text-white">View Details</button>
+								class="btn btn-primary text-white">Xem chi tiết</button>
 						</div>
 					</div>
 				</div>

@@ -28,31 +28,33 @@ label{
 							<img src="Images/login.png" style="max-width: 100px;"
 								class="img-fluid">
 						</div>
-						<h3 class="text-center">Sign-In</h3>
+						<h3 class="text-center">Đăng nhập</h3>
 						<%@include file="Components/alert_message.jsp" %>
 						
 						<!--login-form-->
 						<form id="login-form" action="LoginServlet" method="post">
 							<input type="hidden" name="login" value="user"> 
 							<div class="mb-3">
-								<label class="form-label">Email</label> <input
-									type="email" name="user_email" placeholder="Email address"
+								<label class="form-label">Email</label> 
+								<input
+									type="email" name="user_email" placeholder="Email"
 									class="form-control" required>
 							</div>
 							<div class="mb-3">
-								<label class="form-label">Password</label>
+								<label class="form-label">Mật khẩu</label>
 								<input type="password" name="user_password"
-									placeholder="Enter your password" class="form-control" required>
+									placeholder="Mật khẩu" class="form-control" required>
 							</div>
 							<div id="login-btn" class="container text-center">
-								<button type="submit" class="btn btn-outline-primary me-3">Login</button>
+								<button type="submit" class="btn btn-outline-primary me-3">Đăng nhập</button>
 							</div>
 						</form>
 						<div class="mt-3 text-center">
-							<h6><a href="forgot_password.jsp" style="text-decoration: none">Forgot Password?</a></h6>
+							<h6><a href="forgot_password.jsp" style="text-decoration: none">Quên mật khẩu?</a></h6>
 							<h6>
-								Don't have an account?<a href="register.jsp"
-									style="text-decoration: none"> Sign Up</a>
+								Bạn chưa có tài khoản?
+								<a href="register.jsp"
+									style="text-decoration: none"> Đăng ký</a>
 							</h6>
 						</div>
 					</div>  

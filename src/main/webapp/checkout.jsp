@@ -17,7 +17,7 @@ String from = (String)session.getAttribute("from");
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Checkout</title>
+<title>Thanh toán</title>
 <%@include file="Components/common_css_js.jsp"%>
 </head>
 <body>
@@ -34,7 +34,7 @@ String from = (String)session.getAttribute("from");
 						<div class="card">
 							<div class="container-fluid text-white"
 								style="background-color: #389aeb;">
-								<h4>Delivery Address</h4>
+								<h4>Địa chỉ giao hàng</h4>
 							</div>
 						</div>
 						<div class="mt-3 mb-3">
@@ -53,46 +53,45 @@ String from = (String)session.getAttribute("from");
 							<div class="text-end">
 								<button type="button" class="btn btn-outline-primary"
 									data-bs-toggle="modal" data-bs-target="#exampleModal">
-									Change Address</button>
+									Thay đổi địa chỉ</button>
 							</div>
 						</div>
 						<hr>
 						<div class="card">
 							<div class="container-fluid text-white"
 								style="background-color: #389aeb;">
-								<h4>Payment Options</h4>
+								<h4>Phương thức thanh toán</h4>
 							</div>
 						</div>
 						<form action="OrderOperationServlet" method="post">
 							<div class="form-check mt-2">
 								<input class="form-check-input" type="radio" name="payementMode"
-									value="Card Payment" required><label class="form-check-label">Credit
+									value="Card" required><label class="form-check-label">Credit
 									/Debit /ATM card</label><br>
 								<div class="mb-3">
 
 									<input class="form-control mt-3" type="number"
-										placeholder="Enter card number" name="cardno">
+										placeholder="Nhập số thẻ" name="cardno">
 									<div class="row gx-5">
 										<div class="col mt-3">
 											<input class="form-control" type="number"
-												placeholder="Enter CVV" name="cvv">
+												placeholder="Nhập số CVV" name="cvv">
 										</div>
 										<div class="col mt-3">
 											<input class="form-control" type="text"
-												placeholder="Valid through i.e '07/23'">
+												placeholder="Giá trị đến, vd: '07/25'">
 										</div>
 									</div>
 									<input class="form-control mt-3" type="text"
-										placeholder="Enter card holder name" name="name">
+										placeholder="Nhập tên chủ thẻ" name="name">
 								</div>
 								<input class="form-check-input" type="radio" name="payementMode"
-									value="Cash on Delivery"><label
-									class="form-check-label">Cash on Delivery</label>
+									value="COD"><label
+									class="form-check-label">Thanh toán khi nhận hàng (COD)</label>
 							</div>
 							<div class="text-end">
 								<button type="submit"
-									class="btn btn-lg btn-outline-primary mt-3">Place
-									Order</button>
+									class="btn btn-lg btn-outline-primary mt-3">Đặt hàng</button>
 							</div>
 						</form>
 					</div>
@@ -104,7 +103,7 @@ String from = (String)session.getAttribute("from");
 			<div class="col-md-4">
 				<div class="card">
 					<div class="container px-3 py-3">
-						<h4>Price Details</h4>
+						<h4>Chi tiết</h4>
 						<hr>
 						<%
 						if (from.trim().equals("cart")) {
@@ -114,23 +113,23 @@ String from = (String)session.getAttribute("from");
 						%>
 						<table class="table table-borderless">
 							<tr>
-								<td>Total Item</td>
+								<td>Tổng sản phẩm</td>
 								<td><%=totalProduct%></td>
 							</tr>
 							<tr>
-								<td>Total Price</td>
+								<td>Tổng tiền</td>
 								<td>&#8363; <%=totalPrice%></td>
 							</tr>
 							<tr>
-								<td>Delivery Charges</td>
+								<td>Phí vận chuyển</td>
 								<td>&#8363; 40</td>
 							</tr>
 							<tr>
-								<td>Packaging Charges</td>
+								<td>Phí đóng gói</td>
 								<td>&#8363; 29</td>
 							</tr>
 							<tr>
-								<td><h5>Amount Payable :</h5></td>
+								<td><h5>Thành tiền:</h5></td>
 								<td><h5>
 										&#8363;
 										<%=totalPrice + 69%></h5></td>
@@ -144,23 +143,23 @@ String from = (String)session.getAttribute("from");
 						%>
 						<table class="table table-borderless">
 							<tr>
-								<td>Total Item</td>
+								<td>Tổng sản phẩm</td>
 								<td>1</td>
 							</tr>
 							<tr>
-								<td>Total Price</td>
+								<td>Tổng tiền</td>
 								<td>&#8363; <%=price%></td>
 							</tr>
 							<tr>
-								<td>Delivery Charges</td>
+								<td>Phí vận chuyển</td>
 								<td>&#8363; 40</td>
 							</tr>
 							<tr>
-								<td>Packaging Charges</td>
+								<td>Phí đóng gói</td>
 								<td>&#8363; 29</td>
 							</tr>
 							<tr>
-								<td><h5>Amount Payable :</h5></td>
+								<td><h5>Thành tiền:</h5></td>
 								<td><h5>
 										&#8363;
 										<%=price + 69%></h5></td>
@@ -183,8 +182,7 @@ String from = (String)session.getAttribute("from");
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h1 class="modal-title fs-5" id="exampleModalLabel">Change
-						Address</h1>
+					<h1 class="modal-title fs-5" id="exampleModalLabel">Thay đổi địa chỉ</h1>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
@@ -192,70 +190,37 @@ String from = (String)session.getAttribute("from");
 					<input type="hidden" name="operation" value="changeAddress">
 					<div class="modal-body mx-3">
 						<div class="mt-2">
-							<label class="form-label fw-bold">Address</label>
+							<label class="form-label fw-bold">Địa chỉ</label>
 							<textarea name="user_address" rows="3"
-								placeholder="Enter Address(Area and Street))"
+								placeholder="Địa chỉ"
 								class="form-control" required></textarea>
 						</div>
 						<div class="mt-2">
-							<label class="form-label fw-bold">City</label> <input
+							<label class="form-label fw-bold">Quận/Huyện</label> <input
 								class="form-control" type="text" name="city"
-								placeholder="City/District/Town" required>
+								placeholder="Quận/Huyện" required>
 						</div>
 						<div class="mt-2">
-							<label class="form-label fw-bold">Pincode</label> <input
+							<label class="form-label fw-bold">Mã pin</label> <input
 								class="form-control" type="number" name="pincode"
-								placeholder="Pincode" maxlength="6" required>
+								placeholder="Mã pin" maxlength="6" required>
 						</div>
 						<div class="mt-2">
-							<label class="form-label fw-bold">State</label> <select
+							<label class="form-label fw-bold">Tỉnh/Thành phố</label> <select
 								name="state" class="form-select">
-								<option selected>--Select State--</option>
-								<option value="Andaman &amp; Nicobar Islands">Andaman
-									&amp; Nicobar Islands</option>
-								<option value="Andhra Pradesh">Andhra Pradesh</option>
-								<option value="Arunachal Pradesh">Arunachal Pradesh</option>
-								<option value="Assam">Assam</option>
-								<option value="Bihar">Bihar</option>
-								<option value="Chandigarh">Chandigarh</option>
-								<option value="Chhattisgarh">Chhattisgarh</option>
-								<option value="Dadra &amp; Nagar Haveli &amp; Daman &amp; Diu">Dadra
-									&amp; Nagar Haveli &amp; Daman &amp; Diu</option>
-								<option value="Delhi">Delhi</option>
-								<option value="Goa">Goa</option>
-								<option value="Gujarat">Gujarat</option>
-								<option value="Haryana">Haryana</option>
-								<option value="Himachal Pradesh">Himachal Pradesh</option>
-								<option value="Jammu &amp; Kashmir">Jammu &amp; Kashmir</option>
-								<option value="Jharkhand">Jharkhand</option>
-								<option value="Karnataka">Karnataka</option>
-								<option value="Kerala">Kerala</option>
-								<option value="Ladakh">Ladakh</option>
-								<option value="Lakshadweep">Lakshadweep</option>
-								<option value="Madhya Pradesh">Madhya Pradesh</option>
-								<option value="Maharashtra">Maharashtra</option>
-								<option value="Manipur">Manipur</option>
-								<option value="Meghalaya">Meghalaya</option>
-								<option value="Mizoram">Mizoram</option>
-								<option value="Nagaland">Nagaland</option>
-								<option value="Odisha">Odisha</option>
-								<option value="Puducherry">Puducherry</option>
-								<option value="Punjab">Punjab</option>
-								<option value="Rajasthan">Rajasthan</option>
-								<option value="Sikkim">Sikkim</option>
-								<option value="Tamil Nadu">Tamil Nadu</option>
-								<option value="Telangana">Telangana</option>
-								<option value="Tripura">Tripura</option>
-								<option value="Uttarakhand">Uttarakhand</option>
-								<option value="Uttar Pradesh">Uttar Pradesh</option>
-								<option value="West Bengal">West Bengal</option>
+								<option selected></option>
+								<option value="Thành phố Hồ Chí Minh">Thành phố Hồ Chí Minh</option>
+								<option value="Hà Nội">Hà Nội</option>
+								<option value="Bình Phước">Bình Phước</option>
+								<option value="An Giang">An Giang</option>
+								<option value="Đồng Nai">Đồng Nai</option>
 							</select>
 						</div>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary"
-							data-bs-dismiss="modal">Close</button>
-						<button type="submit" class="btn btn-primary">Save</button>
+							data-bs-dismiss="modal">Đóng</button>
+						<button type="submit" class="btn btn-primary">Lưu</button>
 					</div>
 				</form>
 			</div>

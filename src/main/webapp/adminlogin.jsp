@@ -26,7 +26,7 @@ label {
 							<img src="Images/admin.png" style="max-width: 100px;"
 								class="img-fluid">
 						</div>
-						<h3 class="text-center">Login</h3>
+						<h3 class="text-center">Đăng nhập Admin</h3>
 						<%@include file="Components/alert_message.jsp"%>
 					</div>
 					<div class="card-body px-5">
@@ -36,17 +36,17 @@ label {
 							
 							<div class="mb-3">
 								<label class="form-label">Email</label> <input type="email"
-									name="email" placeholder="Email address" class="form-control"
+									name="email" placeholder="Email" class="form-control"
 									required>
 							</div>
 							<div class="mb-2">
-								<label class="form-label">Password</label> <input
+								<label class="form-label">Mật khẩu</label> <input
 									type="password" name="password"
-									placeholder="Enter your password" class="form-control" required>
+									placeholder="Mật khẩu" class="form-control" required>
 							</div>
 
 							<div id="login-btn" class="container text-center mt-5">
-								<button type="submit" class="btn btn-outline-primary me-3">Login</button>
+								<button type="submit" class="btn btn-outline-primary me-3">Đăng nhập</button>
 							</div>
 						</form>
 					</div>  

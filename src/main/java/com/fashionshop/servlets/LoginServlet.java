@@ -14,6 +14,7 @@ import com.fashionshop.entities.Admin;
 import com.fashionshop.entities.Message;
 import com.fashionshop.entities.User;
 import com.fashionshop.helper.ConnectionProvider;
+import com.fashionshop.helper.LogData;
 
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -39,9 +40,11 @@ public class LoginServlet extends HttpServlet {
 				// storing current user in session
 				HttpSession session = request.getSession();
 				if (user != null) {
+					LogData.saveLog("LoginServlet", request, "User logged in successfully", "");
 					session.setAttribute("activeUser", user);
 					response.sendRedirect("index.jsp");
 				} else {
+					LogData.saveLog("LoginServlet", request, "", "Invalid details");
 					Message message = new Message("Invalid details! Try again!!", "error", "alert-danger");
 					session.setAttribute("message", message);
 					response.sendRedirect("login.jsp");
@@ -49,6 +52,7 @@ public class LoginServlet extends HttpServlet {
 				}
 
 			} catch (Exception e) {
+				
 				e.printStackTrace();
 			}
 		} else if (login.trim().equals("admin")) {

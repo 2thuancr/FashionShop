@@ -165,6 +165,9 @@ List<Product> topDeals = productDao.getDiscountedProducts();
 	</div>
 	<!-- end -->
 
+	<!--footer -->
+	<%@include file="Components/footer.jsp"%>
+
 	<!-- confirmation message for successful order -->
 	<%
 	String order = (String) session.getAttribute("order");

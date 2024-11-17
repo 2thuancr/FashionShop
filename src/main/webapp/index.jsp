@@ -23,20 +23,7 @@ List<Product> topDeals = productDao.getDiscountedProducts();
 	max-height: 200px;
 }
 
-.real-price {
-	font-size: 20px !important;
-	font-weight: 600;
-}
 
-.product-price {
-	font-size: 17px !important;
-	text-decoration: line-through;
-}
-
-.product-discount {
-	font-size: 15px !important;
-	color: #027a3e;
-}
 </style>
 </head>
 <body>
@@ -45,7 +32,7 @@ List<Product> topDeals = productDao.getDiscountedProducts();
 
 	<!-- Category list -->
 	<div class="container-fluid px-3 py-3"
-		style="background-color: #e3f7fc;">
+		style="background-color: #fff;">
 		<div class="row">
 			<div class="card-group">
 				<%
@@ -89,12 +76,13 @@ List<Product> topDeals = productDao.getDiscountedProducts();
 		<button class="carousel-control-prev" type="button"
 			data-bs-target="#carouselAutoplaying" data-bs-slide="prev">
 			<span class="carousel-control-prev-icon" aria-hidden="true"
-				style="color: black;"></span> <span class="visually-hidden">Previous</span>
+				style="color: black;"></span> <span class="visually-hidden">Trước</span>
 		</button>
 		<button class="carousel-control-next" type="button"
 			data-bs-target="#carouselAutoplaying" data-bs-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span> <span
-				class="visually-hidden">Next</span>
+			<span class="carousel-control-next-icon" aria-hidden="true"></span> 
+			<span
+				class="visually-hidden">Tiếp</span>
 		</button>
 	</div>
 	<!-- end of carousel -->
@@ -126,10 +114,9 @@ List<Product> topDeals = productDao.getDiscountedProducts();
 							<h5 class="card-title text-center"><%=productList.get(i).getProductName()%></h5>
 
 							<div class="container text-center">
-								<span class="real-price">&#8363;<%=productList.get(i).getProductPriceAfterDiscount()%></span>
-								&ensp;<span class="product-price">&#8363;<%=productList.get(i).getProductPrice()%>
-								</span>&ensp;<span class="product-discount"><%=productList.get(i).getProductDiscount()%>&#37;
-									off</span>
+								<span class="real-price"><%=productList.get(i).getProductPriceAfterDiscount()%> VNĐ</span>
+								&ensp;<span class="product-price"><%=productList.get(i).getProductPrice()%> VNĐ
+								</span>&ensp;<span class="product-discount">-<%=productList.get(i).getProductDiscount()%>%</span>
 							</div>
 						</div>
 					</div>
@@ -163,10 +150,9 @@ List<Product> topDeals = productDao.getDiscountedProducts();
 							<h5 class="card-title text-center"><%=topDeals.get(i).getProductName()%></h5>
 
 							<div class="container text-center">
-								<span class="real-price">&#8363;<%=topDeals.get(i).getProductPriceAfterDiscount()%></span>
-								&ensp;<span class="product-price">&#8363;<%=topDeals.get(i).getProductPrice()%>
-								</span>&ensp;<span class="product-discount"><%=topDeals.get(i).getProductDiscount()%>&#37;
-									off</span>
+								<span class="real-price"><%=topDeals.get(i).getProductPriceAfterDiscount()%> VNĐ</span>
+								&ensp;<span class="product-price"><%=topDeals.get(i).getProductPrice()%> VNĐ
+								</span>&ensp;<span class="product-discount">-<%=topDeals.get(i).getProductDiscount()%>%</span>
 							</div>
 						</div>
 					</div>
@@ -188,8 +174,8 @@ List<Product> topDeals = productDao.getDiscountedProducts();
 		console.log("testing..4...");
 		Swal.fire({
 		  icon : 'success',
-		  title: 'Order Placed, Thank you!',
-		  text: 'Confirmation will be sent to <%=user.getUserEmail()%>',
+		  title: 'Đã đặt đơn hàng, cảm ơn bạn!',
+		  text: 'Xác nhận này sẽ được gửi đến <%=user.getUserEmail()%>',
 		  width: 600,
 		  padding: '3em',
 		  showConfirmButton : false,

@@ -16,20 +16,6 @@ Product product = (Product) productDao.getProductsByProductId(productId);
 <title>Chi tiết sản phẩm</title>
 <%@include file="Components/common_css_js.jsp"%>
 <style type="text/css">
-.real-price {
-	font-size: 26px !important;
-	font-weight: 600;
-}
-
-.product-price {
-	font-size: 18px !important;
-	text-decoration: line-through;
-}
-
-.product-discount {
-	font-size: 16px !important;
-	color: #027a3e;
-}
 </style>
 </head>
 <body>
@@ -51,8 +37,8 @@ Product product = (Product) productDao.getProductsByProductId(productId);
 				<div class="container-fluid my-5">
 					<h4><%=product.getProductName()%></h4>
 					<span class="fs-5"><b>Mô tả</b></span><br> <span><%=product.getProductDescription()%></span><br>
-					<span class="real-price">&#8363;<%=product.getProductPriceAfterDiscount()%></span>&ensp;
-					<span class="product-price">&#8363;<%=product.getProductPrice()%></span>&ensp;
+					<span class="real-price"><%=product.getProductPriceAfterDiscount()%> VNĐ</span>&ensp;
+					<span class="product-price"><%=product.getProductPrice()%> VNĐ</span>&ensp;
 					<span class="product-discount">-<%=product.getProductDiscount()%>&#37;</span><br>
 					<span class="fs-5"><b>Trạng thái: </b></span> <span id="availability">
 						<%

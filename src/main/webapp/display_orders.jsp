@@ -72,7 +72,7 @@ UserDao userDao = new UserDao(ConnectionProvider.getConnection());
 					<td><%=order.getOrderId()%></td>
 					<td><%=orderProduct.getName()%>
 						<br>Số lượng: <%=orderProduct.getQuantity()%>
-						<br>Tổng tiền: &#8363;<%=orderProduct.getPrice() * orderProduct.getQuantity()%>
+						<br>Tổng tiền: <%=orderProduct.getPrice() * orderProduct.getQuantity()%> VNĐ
 					</td>
 					<td><%=userDao.getUserName(order.getUserId())%>
 						<br>Số điện thoại <%=userDao.getUserPhone(order.getUserId())%>

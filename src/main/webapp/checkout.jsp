@@ -118,21 +118,21 @@ String from = (String)session.getAttribute("from");
 							</tr>
 							<tr>
 								<td>Tổng tiền</td>
-								<td>&#8363; <%=totalPrice%></td>
+								<td><%=totalPrice%> VNĐ</td>
 							</tr>
 							<tr>
 								<td>Phí vận chuyển</td>
-								<td>&#8363; 40</td>
+								<td>40 VNĐ</td>
 							</tr>
 							<tr>
 								<td>Phí đóng gói</td>
-								<td>&#8363; 29</td>
+								<td>29 VNĐ</td>
 							</tr>
 							<tr>
 								<td><h5>Thành tiền:</h5></td>
 								<td><h5>
-										&#8363;
-										<%=totalPrice + 69%></h5></td>
+										
+										<%=totalPrice + 69%> VNĐ</h5></td>
 							</tr>
 						</table>
 						<%
@@ -148,21 +148,21 @@ String from = (String)session.getAttribute("from");
 							</tr>
 							<tr>
 								<td>Tổng tiền</td>
-								<td>&#8363; <%=price%></td>
+								<td><%=price%> VNĐ</td>
 							</tr>
 							<tr>
 								<td>Phí vận chuyển</td>
-								<td>&#8363; 40</td>
+								<td>40 VNĐ</td>
 							</tr>
 							<tr>
 								<td>Phí đóng gói</td>
-								<td>&#8363; 29</td>
+								<td>29 VNĐ</td>
 							</tr>
 							<tr>
 								<td><h5>Thành tiền:</h5></td>
 								<td><h5>
-										&#8363;
-										<%=price + 69%></h5></td>
+										
+										<%=price + 69%> VNĐ</h5></td>
 							</tr>
 						</table>
 						<%

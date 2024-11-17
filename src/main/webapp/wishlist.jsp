@@ -47,7 +47,7 @@ ProductDao pDao = new ProductDao(ConnectionProvider.getConnection());
 				<td><img src="Product_imgs\<%=p.getProductImages()%>"
 					style="width: 50px; height: 50px; width: auto;"></td>
 				<td class="text-start"><%=p.getProductName()%></td>
-				<td>&#8363;<%=p.getProductPriceAfterDiscount()%></td>
+				<td><%=p.getProductPriceAfterDiscount()%> VNĐ</td>
 				<td><a
 					href="WishlistServlet?uid=<%=u1.getUserId()%>&pid=<%=p.getProductId()%>&op=delete"
 					class="btn btn-secondary" role="button">Xóa</a></td>

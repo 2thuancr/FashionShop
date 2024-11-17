@@ -49,20 +49,7 @@ if (prodList != null && prodList.size() == 0) {
 <title>Products</title>
 <%@include file="Components/common_css_js.jsp"%>
 <style>
-.real-price {
-	font-size: 22px !important;
-	font-weight: 600;
-}
 
-.product-price {
-	font-size: 17px !important;
-	text-decoration: line-through;
-}
-
-.product-discount {
-	font-size: 15px !important;
-	color: #027a3e;
-}
 
 .wishlist-icon {
 	cursor: pointer;
@@ -132,8 +119,8 @@ if (prodList != null && prodList.size() == 0) {
 						<h5 class="card-title text-center"><%=p.getProductName()%></h5>
 
 						<div class="container text-center">
-							<span class="real-price">&#8363;<%=p.getProductPriceAfterDiscount()%></span>&ensp;
-							<span class="product-price">&#8363;<%=p.getProductPrice()%></span>&ensp;
+							<span class="real-price"><%=p.getProductPriceAfterDiscount()%> VNĐ</span>&ensp;
+							<span class="product-price"><%=p.getProductPrice()%> VNĐ</span>&ensp;
 							<span class="product-discount">-<%=p.getProductDiscount()%>&#37;</span>
 						</div>
 						<div class="container text-center mb-2 mt-2">

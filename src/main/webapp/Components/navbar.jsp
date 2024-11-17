@@ -30,7 +30,7 @@ List<Category> categoryList = catDao.getAllCategories();
 }
 
 .dropdown-menu li a:hover {
-	background-color: #808080 !important;
+	background-color: #ff48b9ec !important;
 	color: white;
 }
 </style>
@@ -42,8 +42,7 @@ List<Category> categoryList = catDao.getAllCategories();
 	%>
 	<div class="container">
 		<a class="navbar-brand" href="admin.jsp">
-			<i class="fa-sharp fa-solid fa-house" style="color: #ffffff;"></i>
-			&ensp;Fashion Shop
+			<img src="Images/Leyla.png" alt="" height="60px">
 		</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 			data-bs-target="#navbarSupportedContent"
@@ -83,8 +82,9 @@ List<Category> categoryList = catDao.getAllCategories();
 
 	<!-- for all -->
 	<div class="container">
-		<a class="navbar-brand" href="index.jsp"><i
-			class="fa-sharp fa-solid fa-house" style="color: #ffffff;"></i>&ensp;Fashion Shop</a>
+		<a class="navbar-brand" href="index.jsp">
+			<img src="Images/Leyla.png" alt="" height="60px">
+		</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 			data-bs-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"

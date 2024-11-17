@@ -49,7 +49,7 @@ ProductDao productDao = new ProductDao(ConnectionProvider.getConnection());
 					style="width: 60px; height: 60px; width: auto;"></td>
 				<td class="text-start"><%=prod.getProductName()%></td>
 				<td><%=category%></td>
-				<td>&#8363;<%=prod.getProductPriceAfterDiscount()%></td>
+				<td><%=prod.getProductPriceAfterDiscount()%> VNĐ</td>
 				<td><%=prod.getProductQunatity()%></td>
 				<td><%=prod.getProductDiscount()%>%</td>
 				<td>

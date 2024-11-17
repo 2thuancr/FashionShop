@@ -81,6 +81,11 @@ Product product = (Product) productDao.getProductsByProductId(productId);
 			</div>
 		</div>
 	</div>
+	
+	<!--footer -->
+	<%@include file="Components/footer.jsp"%>
+
+
 	<script>
 		$(document).ready(function() {
 			if ($('#availability').text().trim() == "Tạm hết hàng") {

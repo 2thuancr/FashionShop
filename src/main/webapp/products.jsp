@@ -136,6 +136,8 @@ if (prodList != null && prodList.size() == 0) {
 			%>
 		</div>
 	</div>
+	<!--footer -->
+	<%@include file="Components/footer.jsp"%>
 </body>
 </html>
 

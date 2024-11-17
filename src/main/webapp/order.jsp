@@ -73,4 +73,5 @@ List<Order> orderList = orderDao.getAllOrderByUserId(u2.getUserId());
 	<%
 	}
 	%>
+	
 </div>

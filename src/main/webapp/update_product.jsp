@@ -107,6 +107,9 @@ if (activeAdmin == null) {
 	</div>
 	<!-- end -->
 
+	<!--footer -->
+	<%@include file="Components/footer.jsp"%>
+	
 	<script type="text/javascript">
 		function validate() {
 			var dis = document.updateProductForm.discount.value;

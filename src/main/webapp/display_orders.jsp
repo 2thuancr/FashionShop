@@ -114,5 +114,7 @@ UserDao userDao = new UserDao(ConnectionProvider.getConnection());
 		}
 		%>
 	</div>
+	<!--footer -->
+	<%@include file="Components/footer.jsp"%>
 </body>
 </html>

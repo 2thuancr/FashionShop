@@ -43,4 +43,8 @@ h1, h2, h3{
 .btn-secondary{
 	background-color: #ffa83de4 !important;
 	border-color: #ffa83de4 !important;
+	color: #fff !important;
+}
+.btn-danger{
+	color: #fff !important;
 }

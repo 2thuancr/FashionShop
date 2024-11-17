@@ -121,7 +121,8 @@ a {
 		</div>
 	</div>
 	<!--end-->
-
+	<!--footer -->
+	<%@include file="Components/footer.jsp"%>
 	<!-- add category modal-->
 	<div class="modal fade" id="add-category" tabindex="-1"
 		aria-labelledby="addCategoryModalLabel" aria-hidden="true">

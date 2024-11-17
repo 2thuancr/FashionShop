@@ -87,6 +87,9 @@ if (activeUser == null) {
 		</div>
 	</div>
 
+	<!--footer -->
+	<%@include file="Components/footer.jsp"%>
+
 	<script>
 		$(document).ready(function() {
 

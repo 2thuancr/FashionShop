@@ -52,5 +52,7 @@ if (activeAdmin == null) {
 			%>
 		</table>
 	</div>
+	<!--footer -->
+	<%@include file="Components/footer.jsp"%>
 </body>
 </html>

@@ -227,6 +227,7 @@ String from = (String)session.getAttribute("from");
 		</div>
 	</div>
 	<!-- end modal -->
-
+	<!--footer -->
+	<%@include file="Components/footer.jsp"%>
 </body>
 </html>

@@ -57,7 +57,7 @@ DROP TABLE IF EXISTS products;
 CREATE TABLE products (
   pid SERIAL PRIMARY KEY,
   name VARCHAR(250) NOT NULL,
-  description VARCHAR(500),
+  description VARCHAR(5000),
   price VARCHAR(20) NOT NULL,
   quantity INT,
   discount INT,

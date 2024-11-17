@@ -54,16 +54,6 @@ List<Category> categoryList = catDao.getAllCategories();
 
 			<div class="container text-end">
 				<ul class="navbar-nav justify-content-end">
-					<li class="nav-item"><button type="button"
-							class="btn nav-link" data-bs-toggle="modal"
-							data-bs-target="#add-category">
-							<i class="fa-solid fa-plus fa-xs"></i>Thêm danh mục
-						</button></li>
-					<li class="nav-item"><button type="button"
-							class="btn nav-link" data-bs-toggle="modal"
-							data-bs-target="#add-product">
-							<i class="fa-solid fa-plus fa-xs"></i>Thêm sản phẩm
-						</button></li>
 					<li class="nav-item"><a class="nav-link" aria-current="page"
 						href="admin.jsp"><%=admin.getName()%></a></li>
 					<li class="nav-item"><a class="nav-link" aria-current="page"

@@ -4,7 +4,7 @@
 <%
 Admin activeAdmin = (Admin) session.getAttribute("activeAdmin");
 if (activeAdmin == null) {
-	Message message = new Message("You are not logged in! Login first!!", "error", "alert-danger");
+	Message message = new Message("Bạn chưa đăng nhập, vui lòng đăng nhập!!", "error", "alert-danger");
 	session.setAttribute("message", message);
 	response.sendRedirect("adminlogin.jsp");
 	return;
@@ -123,128 +123,11 @@ a {
 	<!--end-->
 	<!--footer -->
 	<%@include file="Components/footer.jsp"%>
-	<!-- add category modal-->
-	<div class="modal fade" id="add-category" tabindex="-1"
-		aria-labelledby="addCategoryModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h1 class="modal-title fs-5" id="addCategoryModalLabel">Thêm danh mục</h1>
-					<button type="button" class="btn-close" data-bs-dismiss="modal"
-						aria-label="Close"></button>
-				</div>
-				<form action="AddOperationServlet" method="post"
-					enctype="multipart/form-data">
-					<div class="modal-body">
-						<input type="hidden" name="operation" value="addCategory">
-
-						<div class="mb-3">
-							<label class="form-label"><b>Tên danh mục</b></label> 
-							<input
-								type="text" name="category_name"
-								placeholder="Enter category here" class="form-control" required>
-						</div>
-						<div class="mb-3">
-							<label for="formFile" class="form-label"><b>Hinh ảnh</b></label> 
-							<input class="form-control" type="file"
-								name="category_img" id="formFile">
-						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary"
-							data-bs-dismiss="modal">Đóng</button>
-						<button type="submit" class="btn btn-primary me-3">Thêm danh mục</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-	<!-- end of modal -->
-
-	<!-- add product modal-->
-	<div class="modal fade" id="add-product" tabindex="-1"
-		aria-labelledby="addProductModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-lg">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h1 class="modal-title fs-5" id="addProductModalLabel">Thêm sản phẩm</h1>
-					<button type="button" class="btn-close" data-bs-dismiss="modal"
-						aria-label="Close"></button>
-				</div>
-				<form action="AddOperationServlet" method="post"
-					name="addProductForm" enctype="multipart/form-data">
-					<div class="modal-body">
-						<input type="hidden" name="operation" value="addProduct">
-						<div>
-							<label class="form-label"><b>Tên sản phẩm</b></label> 
-							<input
-								type="text" name="name" placeholder="Tên sản phẩm"
-								class="form-control" required>
-						</div>
-						<div class="mb-2">
-							<label class="form-label"><b>Mô tả sản phẩm</b></label>
-							<textarea class="form-control" name="description" rows="4"
-								placeholder="Mô tả sản phẩm"></textarea>
-						</div>
-						<div class="row">
-							<div class="col-md-6 mb-2">
-								<label class="form-label"><b>Giá sản phẩm</b></label> 
-								<input
-									type="number" name="price" placeholder="Nhập giá"
-									class="form-control" required>
-							</div>
-							<div class="col-md-6 mb-2">
-								<label class="form-label"><b>Phần trăm khuyến mãi</b></label> 
-								<input
-									type="number" name="discount" onblur="validate()"
-									placeholder="Nhập nếu có khuyến mãi!" class="form-control">
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-6 mb-2">
-								<label class="form-label"><b>Số lượng sản phẩm</b></label> 
-								<input
-									type="number" name="quantity"
-									placeholder="Nhập số lượng sản phẩm" class="form-control">
-							</div>
-							<div class="col-md-6 mb-2">
-								<label class="form-label"><b>Chọn loại danh mục</b></label> 
-								<select
-									name="categoryType" class="form-control">
-									<option value="0"></option>
-									<%
-									for (Category c : categoryList) {
-									%>
-									<option value="<%=c.getCategoryId()%>">
-										<%=c.getCategoryName()%></option>
-									<%
-									}
-									%>
-								</select>
-							</div>
-						</div>
-						<div class="mb-2">
-							<label class="form-label"><b>Hình ảnh sản phẩm</b></label> 
-							<input
-								type="file" name="photo" class="form-control" required>
-						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary"
-							data-bs-dismiss="modal">Đóng</button>
-						<button type="submit" class="btn btn-primary me-3">Thêm sản phẩm</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-	<!-- end of modal -->
-
 	<script type="text/javascript">
 		function validate() {
 			var dis = document.addProductForm.discount.value;
 			if (dis > 100 || dis < 0) {
-				alert("Discount need tobe between 0-100 !");
+				alert("Phần trăm giảm giá phải nằm trong khoảng 0-100!");
 				//document.addProductForm.discount.focus();
 				return false;
 			}

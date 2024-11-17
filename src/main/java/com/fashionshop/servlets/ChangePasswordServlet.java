@@ -42,12 +42,12 @@ public class ChangePasswordServlet extends HttpServlet {
 				session.setAttribute("email", email);
 				MailMessenger.sendOtp(email, otp);
 
-				Message message = new Message("We'ev sent a password reset code to " + email, "success",
+				Message message = new Message("Chúng tôi vừa gửi mã xác nhận thay đổi mật khẩu về " + email, "success",
 						"alert-success");
 				session.setAttribute("message", message);
 				response.sendRedirect("otp_code.jsp");
 			} else {
-				Message message = new Message("Email not found! Try with another email!", "error", "alert-danger");
+				Message message = new Message("Không tìm thấy Email! Hãy thử sử dụng Email khác!", "error", "alert-danger");
 				session.setAttribute("message", message);
 				response.sendRedirect("forgot_password.jsp");
 				return;
@@ -59,7 +59,7 @@ public class ChangePasswordServlet extends HttpServlet {
 				session.removeAttribute("otp");
 				response.sendRedirect("change_password.jsp");
 			} else {
-				Message message = new Message("Invalid verification code entered!", "error", "alert-danger");
+				Message message = new Message("Mã xác nhận không hợp lệ!", "error", "alert-danger");
 				session.setAttribute("message", message);
 				response.sendRedirect("otp_code.jsp");
 				return;
@@ -70,7 +70,7 @@ public class ChangePasswordServlet extends HttpServlet {
 			userDao.updateUserPasswordByEmail(password, email);
 			session.removeAttribute("email");
 
-			Message message = new Message("Password updated successfully!", "error", "alert-success");
+			Message message = new Message("Thay đổi mật khẩu thành công!", "error", "alert-success");
 			session.setAttribute("message", message);
 			response.sendRedirect("login.jsp");
 		}

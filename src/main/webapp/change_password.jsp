@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Create new password</title>
+<title>Tạo mật khẩu mới</title>
 <%@include file="Components/common_css_js.jsp"%>
 <style>
 label {
@@ -27,22 +27,22 @@ label {
 							<img src="Images/forgot-password.png" style="max-width: 100px;"
 								class="img-fluid">
 						</div>
-						<h3 class="text-center mt-3">Update Password</h3>
+						<h3 class="text-center mt-3">Cập nhật mật khẩu</h3>
 						<%@include file="Components/alert_message.jsp"%>
 
 						<form action="ChangePasswordServlet" method="post">
 							<div class="mb-3 mt-3">
-								<label class="form-label">New Password</label> <input
+								<label class="form-label">Mật khẩu mới</label> <input
 									type="password" name="password" id="password"
-									placeholder="Enter new password" class="form-control" required>
+									placeholder="Mật khẩu mới" class="form-control" required>
 							</div>
 							<div class="mb-3">
-								<label class="form-label">Confirm Password</label> <input
+								<label class="form-label">Xác nhận mật khẩu mới</label> <input
 									type="password" id="confirm_password"
-									placeholder="Confirm password" class="form-control" required>
+									placeholder="Xác nhận mật khẩu mới" class="form-control" required>
 							</div>
 							<div class="container text-center">
-								<button type="submit" class="btn btn-outline-primary me-3">Submit</button>
+								<button type="submit" class="btn btn-outline-primary me-3">Gửi</button>
 							</div>
 						</form>
 					</div>
@@ -56,7 +56,7 @@ label {
 
 		function validatePassword() {
 			if (password.value != confirm_password.value) {
-				confirm_password.setCustomValidity("Passwords Don't Match");
+				confirm_password.setCustomValidity("Mật khẩu không khớp!");
 			} else {
 				confirm_password.setCustomValidity('');
 			}

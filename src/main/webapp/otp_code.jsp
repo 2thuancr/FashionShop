@@ -32,7 +32,8 @@ label {
 
 						<form action="ChangePasswordServlet" method="post">
 							<div class="mb-3">
-								<label class="form-label">OTP</label> <input type="number"
+								<label class="form-label">OTP</label> 
+								<input type="number"
 									name="code" placeholder="Mã xác nhận" class="form-control"
 									required>
 							</div>

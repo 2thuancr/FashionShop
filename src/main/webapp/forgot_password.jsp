@@ -28,7 +28,7 @@ label {
 							<img src="Images/forgot-password.png" style="max-width: 100px;"
 								class="img-fluid">
 						</div>
-						<h3 class="text-center mt-3">Đổi mật khẩu</h3>
+						<h3 class="text-center mt-3">Quên mật khẩu</h3>
 						<%@include file="Components/alert_message.jsp"%>
 
 						<!--change password-->

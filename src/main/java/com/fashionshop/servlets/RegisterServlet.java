@@ -46,12 +46,16 @@ public class RegisterServlet extends HttpServlet {
 			if (flag) {
 				message = new Message("Registration Successful !!", "success", "alert-success");
 				MailMessenger.successfullyRegister(userName, userEmail);
+				session.setAttribute("message", message);
+				response.sendRedirect("login.jsp");
+				return;
 			} else {
 				message = new Message("Something went wrong! Try again!!", "error", "alert-danger");
+				session.setAttribute("message", message);
+				response.sendRedirect("register.jsp");
+				return;
 			}
-			session.setAttribute("message", message);
-			response.sendRedirect("register.jsp");
-			return;
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();

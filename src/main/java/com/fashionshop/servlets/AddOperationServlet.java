@@ -62,9 +62,9 @@ public class AddOperationServlet extends HttpServlet {
 			}
 
 			if (flag) {
-				message = new Message("Category added successfully!!", "success", "alert-success");
+				message = new Message("Tạo danh mục thành công!!", "success", "alert-success");
 			} else {
-				message = new Message("Something went wrong! Try again!!", "error", "alert-danger");
+				message = new Message("Có lỗi phát sinh! Vui lòng thử lại!!", "error", "alert-danger");
 			}
 			session.setAttribute("message", message);
 			response.sendRedirect("display_category.jsp");
@@ -102,9 +102,9 @@ public class AddOperationServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 			if (flag) {
-				message = new Message("Product added successfully!!", "success", "alert-success");
+				message = new Message("Thêm sản phẩm thành công!!", "success", "alert-success");
 			} else {
-				message = new Message("Something went wrong! Try again!!", "error", "alert-danger");
+				message = new Message("Có lỗi phát sinh! Vui lòng thử lại!!", "error", "alert-danger");
 			}
 			session.setAttribute("message", message);
 			response.sendRedirect("display_products.jsp");
@@ -136,7 +136,7 @@ public class AddOperationServlet extends HttpServlet {
 					e.printStackTrace();
 				}
 			}
-			message = new Message("Category updated successfully!!", "success", "alert-success");
+			message = new Message("Cập nhật danh mục thành công!!", "success", "alert-success");
 			session.setAttribute("message", message);
 			response.sendRedirect("display_category.jsp");
 
@@ -187,7 +187,7 @@ public class AddOperationServlet extends HttpServlet {
 					e.printStackTrace();
 				}
 			}
-			message = new Message("Product updated successfully!!", "success", "alert-success");
+			message = new Message("Cập nhật sản phẩm thành công!!", "success", "alert-success");
 			session.setAttribute("message", message);
 			response.sendRedirect("display_products.jsp");
 

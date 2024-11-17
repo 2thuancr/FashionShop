@@ -83,9 +83,9 @@ UserDao userDao = new UserDao(ConnectionProvider.getConnection());
 					<td><%=order.getStatus()%></td>
 					<td><select id="operation" name="status" class="form-select">
 							<option></option>
-							<option value="OrderConfirmed">Đã xác nhận đơn hàng</option>
+							<option value="Order Confirmed">Đã xác nhận đơn hàng</option>
 							<option value="Shipped">Đã giao hàng</option>
-							<option value="OutForDelivery">Đang vận chuyển </option>
+							<option value="Out For Delivery">Đang vận chuyển </option>
 							<option value="Delivered">Vận chuyển thành công</option>
 					</select></td>
 					<td>

@@ -12,7 +12,7 @@ List<Product> topDeals = productDao.getDiscountedProducts();
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Home</title>
+<title>Fashion Shop</title>
 <%@include file="Components/common_css_js.jsp"%>
 <style type="text/css">
 .cus-card {
@@ -114,9 +114,9 @@ List<Product> topDeals = productDao.getDiscountedProducts();
 							<h6 class="card-title text-center"><%=productList.get(i).getProductName()%></h6>
 
 							<div class="container text-center">
-								<span class="real-price"><%=productList.get(i).getProductPriceAfterDiscount()%> VNĐ</span>
-								&ensp;<span class="product-price"><%=productList.get(i).getProductPrice()%> VNĐ
-								</span>&ensp;<span class="product-discount">-<%=productList.get(i).getProductDiscount()%>%</span>
+								<span class="real-price"><%=productList.get(i).getProductPriceAfterDiscount()%> VNĐ</span>&ensp;
+								<span class="product-price text-danger"><%=productList.get(i).getProductPrice()%> VNĐ</span>&ensp;
+								<span class="product-discount">-<%=productList.get(i).getProductDiscount()%>%</span>
 							</div>
 						</div>
 					</div>
@@ -150,9 +150,9 @@ List<Product> topDeals = productDao.getDiscountedProducts();
 							<h6 class="card-title text-center"><%=topDeals.get(i).getProductName()%></h6>
 
 							<div class="container text-center">
-								<span class="real-price"><%=topDeals.get(i).getProductPriceAfterDiscount()%> VNĐ</span>
-								&ensp;<span class="product-price"><%=topDeals.get(i).getProductPrice()%> VNĐ
-								</span>&ensp;<span class="product-discount">-<%=topDeals.get(i).getProductDiscount()%>%</span>
+								<span class="real-price"><%=topDeals.get(i).getProductPriceAfterDiscount()%> VNĐ</span>&ensp;
+								<span class="product-price text-danger"><%=topDeals.get(i).getProductPrice()%> VNĐ</span>&ensp;
+								<span class="product-discount">-<%=topDeals.get(i).getProductDiscount()%>%</span>
 							</div>
 						</div>
 					</div>

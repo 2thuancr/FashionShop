@@ -42,7 +42,7 @@ public class CartOperationServlet extends HttpServlet {
 
 			} else {
 				HttpSession session = request.getSession();
-				Message message = new Message("Product out of stock!", "error", "alert-danger");
+				Message message = new Message("Sản phẩm tạm hết hàng!", "error", "alert-danger");
 				session.setAttribute("message", message);
 				response.sendRedirect("cart.jsp");
 			}
@@ -57,7 +57,7 @@ public class CartOperationServlet extends HttpServlet {
 		} else if (opt == 3) {
 			cartDao.removeProduct(cid);
 			HttpSession session = request.getSession();
-			Message message = new Message("Product removed from cart!", "success", "alert-success");
+			Message message = new Message("Đã xóa sản phẩm khỏi giỏ hàng!", "success", "alert-success");
 			session.setAttribute("message", message);
 
 			// updating quantity of product in database

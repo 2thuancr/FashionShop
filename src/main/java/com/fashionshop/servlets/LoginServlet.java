@@ -52,12 +52,12 @@ public class LoginServlet extends HttpServlet {
 				// storing current user in session
 				
 				if (user != null) {
-					LogData.saveLog("LoginServlet", request, "User logged in successfully", "");
+					// LogData.saveLog("LoginServlet", request, "User logged in successfully", "");
 					session.setAttribute("activeUser", user);
 					response.sendRedirect("index.jsp");
 				} else {
-					LogData.saveLog("LoginServlet", request, "", "Invalid details");
-					Message message = new Message("Invalid details! Try again!!", "error", "alert-danger");
+					// LogData.saveLog("LoginServlet", request, "", "Invalid details");
+					Message message = new Message("Không tìm thấy tài khoản Khách hàng! Vui lòng thử lại!!", "error", "alert-danger");
 					session.setAttribute("message", message);
 					response.sendRedirect("login.jsp");
 					return;
@@ -79,7 +79,7 @@ public class LoginServlet extends HttpServlet {
 					session.setAttribute("activeAdmin", admin);
 					response.sendRedirect("admin.jsp");
 				} else {
-					Message message = new Message("Invalid details! Try again!!", "error", "alert-danger");
+					Message message = new Message("Không tìm thấy tài khoản Quản lý! Vui lòng thử lại!!", "error", "alert-danger");
 					session.setAttribute("message", message);
 					response.sendRedirect("adminlogin.jsp");
 					return;

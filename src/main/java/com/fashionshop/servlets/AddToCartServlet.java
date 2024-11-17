@@ -37,12 +37,12 @@ public class AddToCartServlet extends HttpServlet {
 		if (qty == 0) {
 			Cart cart = new Cart(uid, pid, qty + 1);
 			cartDao.addToCart(cart);
-			message = new Message("Product is added to cart successfully!", "success", "alert-success");
+			message = new Message("Thêm sản phẩm vào giỏ hàng thành công!", "success", "alert-success");
 
 		} else {
 			int cid = cartDao.getIdByUserIdAndProductId(uid, pid);
 			cartDao.updateQuantity(cid, qty + 1);
-			message = new Message("Product quantity is increased!", "success", "alert-success");
+			message = new Message("Cập nhật số lượng sản phẩm thành công!", "success", "alert-success");
 		}
 		// updating quantity of product in database
 		ProductDao productDao = new ProductDao(ConnectionProvider.getConnection());

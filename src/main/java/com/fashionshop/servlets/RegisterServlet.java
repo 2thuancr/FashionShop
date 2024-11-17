@@ -44,13 +44,13 @@ public class RegisterServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			Message message;
 			if (flag) {
-				message = new Message("Registration Successful !!", "success", "alert-success");
+				message = new Message("Đăng ký thành công !!", "success", "alert-success");
 				MailMessenger.successfullyRegister(userName, userEmail);
 				session.setAttribute("message", message);
 				response.sendRedirect("login.jsp");
 				return;
 			} else {
-				message = new Message("Something went wrong! Try again!!", "error", "alert-danger");
+				message = new Message("Có lỗi phát sinh! Vui lòng thử lại!!", "error", "alert-danger");
 				session.setAttribute("message", message);
 				response.sendRedirect("register.jsp");
 				return;

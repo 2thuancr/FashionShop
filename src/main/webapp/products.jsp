@@ -49,7 +49,17 @@ if (prodList != null && prodList.size() == 0) {
 <title>Products</title>
 <%@include file="Components/common_css_js.jsp"%>
 <style>
-
+.discount-badge {
+	cursor: pointer;
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	width: 50px;
+	height: 24px;
+	border: 1px solid #f0f0f0;
+	box-shadow: 0 1px 4px 0 rgba(255, 0, 0, 0.1);
+	background: #ff00004f;
+}
 
 .wishlist-icon {
 	cursor: pointer;
@@ -74,17 +84,21 @@ if (prodList != null && prodList.size() == 0) {
 	<h4 class="text-center mt-2"><%=message%></h4>
 	<div class="container-fluid my-3 px-5">
 
-		<div class="row row-cols-1 row-cols-md-4 g-3">
+		<div class="row row-cols-1 row-cols-md-5 g-3">
 			<%
 			for (Product p : prodList) {
 			%>
 			<div class="col">
-
-				<div class="card h-100 px-2 py-2">
+				<div class="card h-100 justify-content-between px-2 py-2">
 					<div class="container text-center">
 						<img src="Product_imgs\<%=p.getProductImages()%>"
 							class="card-img-top m-2"
 							style="max-width: 100%; max-height: 200px; width: auto;">
+						
+						<div class="discount-badge">
+							<span class="product-discount">-<%=p.getProductDiscount()%>&#37;</span>
+						</div>
+
 						<div class="wishlist-icon">
 							<%
 							if (u != null) {
@@ -116,18 +130,19 @@ if (prodList != null && prodList.size() == 0) {
 							%>
 
 						</div>
-						<h5 class="card-title text-center"><%=p.getProductName()%></h5>
+						<h6 class="card-title text-center"><%=p.getProductName()%></h6>
 
 						<div class="container text-center">
 							<span class="real-price"><%=p.getProductPriceAfterDiscount()%> VNĐ</span>&ensp;
-							<span class="product-price"><%=p.getProductPrice()%> VNĐ</span>&ensp;
-							<span class="product-discount">-<%=p.getProductDiscount()%>&#37;</span>
+							<span class="product-price text-danger"><%=p.getProductPrice()%> VNĐ</span>&ensp;
 						</div>
-						<div class="container text-center mb-2 mt-2">
-							<button type="button"
-								onclick="window.open('viewProduct.jsp?pid=<%=p.getProductId()%>', '_self')"
-								class="btn btn-primary text-white">Xem chi tiết</button>
-						</div>
+						
+					</div>
+
+					<div class="container text-center mb-2 mt-2">
+						<button type="button"
+							onclick="window.open('viewProduct.jsp?pid=<%=p.getProductId()%>', '_self')"
+							class="btn btn-primary text-white">Xem chi tiết</button>
 					</div>
 				</div>
 			</div>

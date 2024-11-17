@@ -89,16 +89,16 @@ List<Product> topDeals = productDao.getDiscountedProducts();
 
 	<!-- latest product listed -->
 	<div class="container-fluid py-3 px-3" style="background: #f2f2f2;">
-		<div class="row row-cols-1 row-cols-md-4 g-3">
+		<div class="row row-cols-1 row-cols-md-5 g-3">
 			<div class="col">
 				<div class="container text-center px-5 py-5">
 					<h1>Xem gần đây</h1>
-					<img src="Images\product.png" class="card-img-top"
+					<img src="Images\wishlist.png" class="card-img-top"
 						style="max-width: 100%; max-height: 200px; width: auto;">
 				</div>
 			</div>
 			<%
-			for (int i = 0; i < Math.min(3, productList.size()); i++) {
+			for (int i = 0; i < Math.min(4, productList.size()); i++) {
 			%>
 			<div class="col">
 				<a href="viewProduct.jsp?pid=<%=productList.get(i).getProductId()%>"
@@ -111,7 +111,7 @@ List<Product> topDeals = productDao.getDiscountedProducts();
 								style="max-width: 100%; max-height: 200px; width: auto;">
 						</div>
 						<div class="card-body">
-							<h5 class="card-title text-center"><%=productList.get(i).getProductName()%></h5>
+							<h6 class="card-title text-center"><%=productList.get(i).getProductName()%></h6>
 
 							<div class="container text-center">
 								<span class="real-price"><%=productList.get(i).getProductPriceAfterDiscount()%> VNĐ</span>
@@ -133,7 +133,7 @@ List<Product> topDeals = productDao.getDiscountedProducts();
 	<!-- product with heavy deals -->
 	<div class="container-fluid py-3 px-3" style="background: #f0fffe;">
 		<h3>Hot Deals</h3>
-		<div class="row row-cols-1 row-cols-md-4 g-3">
+		<div class="row row-cols-1 row-cols-md-5 g-3">
 			<%
 			for (int i = 0; i < Math.min(4, topDeals.size()); i++) {
 			%>
@@ -147,7 +147,7 @@ List<Product> topDeals = productDao.getDiscountedProducts();
 								style="max-width: 100%; max-height: 200px; width: auto;">
 						</div>
 						<div class="card-body">
-							<h5 class="card-title text-center"><%=topDeals.get(i).getProductName()%></h5>
+							<h6 class="card-title text-center"><%=topDeals.get(i).getProductName()%></h6>
 
 							<div class="container text-center">
 								<span class="real-price"><%=topDeals.get(i).getProductPriceAfterDiscount()%> VNĐ</span>

@@ -19,7 +19,7 @@ label{
 	<%@include file="Components/navbar.jsp"%>
 
 	<div class="container-fluid">
-		<div class="row mt-5">
+		<div class="row my-5">
 			<div class="col-md-4 offset-md-4">
 				<div class="card">
 					<div class="card-body px-5">
@@ -56,6 +56,15 @@ label{
 								<a href="register.jsp"
 									style="text-decoration: none"> Đăng ký</a>
 							</h6>
+						</div>
+
+						<hr/>
+						<div class="mt-3 text-center"></div>
+							<div>
+								Bạn là Quản lý? Đăng nhập 
+								<a href="adminlogin.jsp"
+									style="text-decoration: none"> tại đây</a>
+							</div>
 						</div>
 					</div>  
 

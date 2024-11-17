@@ -48,6 +48,15 @@ label {
 							<div id="login-btn" class="container text-center mt-5">
 								<button type="submit" class="btn btn-outline-primary me-3">Đăng nhập</button>
 							</div>
+
+							<hr/>
+							<div class="mt-3 text-center"></div>
+								<div>
+									Đăng nhập với tư cách người dùng  
+									<a href="login.jsp"
+										style="text-decoration: none"> tại đây</a>
+								</div>
+							</div>
 						</form>
 					</div>  
 				</div>

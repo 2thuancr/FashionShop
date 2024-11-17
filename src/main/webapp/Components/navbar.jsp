@@ -34,7 +34,7 @@ List<Category> categoryList = catDao.getAllCategories();
 	color: white;
 }
 </style>
-<nav class="navbar navbar-expand-lg custom-color" data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg custom-color" style="font-size: smaller; padding: 0px;" data-bs-theme="dark">
 
 	<!-- admin nav bar -->
 	<%
@@ -156,11 +156,11 @@ List<Category> categoryList = catDao.getAllCategories();
 						Đăng nhập
 					</a>
 				</li>
-				<li class="nav-item pe-2">
+				<!-- <li class="nav-item pe-2">
 					<a class="nav-link" aria-current="page" href="adminlogin.jsp">
 						Admin
 					</a>
-				</li>
+				</li> -->
 			</ul>
 		</div>
 	</div>

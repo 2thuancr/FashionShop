@@ -14,7 +14,7 @@
 	<div class="container p-5 text-center">
 		<img src="Images\no-results.png" class="img-fluid" style="max-width: 400px;">
 		<h1>Xin lỗi! Có lỗi phát sinh...</h1>
-		<p><%=exception%></p>
+		<!-- <p><%=exception%></p> -->
 		<a href="index.jsp" class="btn btn-outline-primary btn-lg mt-3">Trang chủ</a>
 	</div>
 	<!--footer -->

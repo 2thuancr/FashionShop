@@ -92,7 +92,7 @@ List<Product> topDeals = productDao.getDiscountedProducts();
 		<div class="row row-cols-1 row-cols-md-5 g-3">
 			<div class="col">
 				<div class="container text-center px-5 py-5">
-					<h1>Xem gần đây</h1>
+					<h3>Sản phẩm đã xem</h3>
 					<img src="Images\wishlist.png" class="card-img-top"
 						style="max-width: 100%; max-height: 200px; width: auto;">
 				</div>
@@ -131,7 +131,7 @@ List<Product> topDeals = productDao.getDiscountedProducts();
 	<!-- end of list -->
 
 	<!-- product with heavy deals -->
-	<div class="container-fluid py-3 px-3" style="background: #f0fffe;">
+	<div class="container-fluid py-3 px-3" style="background: #ff9a9a61;">
 		<h3>Hot Deals</h3>
 		<div class="row row-cols-1 row-cols-md-5 g-3">
 			<%

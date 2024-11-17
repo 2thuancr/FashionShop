@@ -139,3 +139,6 @@ INSERT INTO products (pid, name, description, price, quantity, discount, image, 
 (3,'OnePlus Y1S Pro 138 cm  Ultra HD (4K) LED Smart Android TV','Enjoy rich, clear, and authentic audiovisual content in its true form with the brilliant OnePlus TV that understands you and strives to keep you entertained constantly. This OnePlus TV s Smart Manager offers a number of enhancements for a smart and durable TV experience. Thanks to the sophisticated Gamma Engine, which intelligently adjusts the image for crystal-clear content and maximises display quality, every scene comes to life.','49999.0',1,18,'OnePlus.jpg',2),
 (8,'Samsung Galaxy S23 5G','Brand Samsung Model Name Samsung Galaxy S23 Network Service Provider Unlocked for All Carriers Operating System Android 13.0 Cellular Technology 5G','79999.0',10,17,'Galaxy_S23_5G.jpg',1),
 (9,'ASUS TUF Gaming A15','15.6 inch Full HD, IPS, Anti-glare Display, Aspect Ratio: 16:9, Refresh Rate: 144 Hz, Viewing Angle: 85/85/85/85, Brightness: 250nits, Contrast Ratio: 1:1000, 45% NTSC, SRGB%: 62.5%, Adobe%: 47.34%, Adaptive-Sync Light Laptop without Optical Disk Drive Preloaded with MS Office','71990.0',11,20,'ASUS.jpg',3);
+
+
+ALTER TABLE users ADD avatar_url varchar NULL;

@@ -64,8 +64,7 @@ if (activeAdmin == null) {
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
-				<form action="AddOperationServlet" method="post"
-					enctype="multipart/form-data">
+				<form action="AddOperationServlet" method="post" enctype="multipart/form-data">
 					<div class="modal-body">
 						<input type="hidden" name="operation" value="addCategory">
 

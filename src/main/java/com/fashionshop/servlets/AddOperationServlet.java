@@ -67,7 +67,7 @@ public class AddOperationServlet extends HttpServlet {
 				message = new Message("Something went wrong! Try again!!", "error", "alert-danger");
 			}
 			session.setAttribute("message", message);
-			response.sendRedirect("admin.jsp");
+			response.sendRedirect("display_category.jsp");
 
 		} else if (operation.trim().equals("addProduct")) {
 
@@ -107,7 +107,7 @@ public class AddOperationServlet extends HttpServlet {
 				message = new Message("Something went wrong! Try again!!", "error", "alert-danger");
 			}
 			session.setAttribute("message", message);
-			response.sendRedirect("admin.jsp");
+			response.sendRedirect("display_products.jsp");
 
 		} else if (operation.trim().equals("updateCategory")) {
 

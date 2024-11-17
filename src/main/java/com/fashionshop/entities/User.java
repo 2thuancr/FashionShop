@@ -15,13 +15,15 @@ public class User {
 	private String userCity;
 	private String userPincode;
 	private String userState;
+	private String userAvatarUrl;
 	
 	public User() {
 		
 	}
 
-	public User(String userName, String userEmail, String userPassword, String userPhone, String userGender,
-			String userAddress, String userCity, String userPincode, String userState) {
+	public User(String userName, String userEmail, String userPassword, String userPhone, 
+			String userGender, String userAddress, String userCity, String userPincode, 
+			String userState, String userAvatarUrl) {
 		super();
 		this.userName = userName;
 		this.userEmail = userEmail;
@@ -32,10 +34,11 @@ public class User {
 		this.userCity = userCity;
 		this.userPincode = userPincode;
 		this.userState = userState;
+		this.userAvatarUrl = userAvatarUrl;
 	}
 
 	public User(String userName, String userEmail, String userPassword, String userPhone, String userGender,
-			Timestamp dateTime, String userAddress, String userCity, String userPincode, String userState) {
+			Timestamp dateTime, String userAddress, String userCity, String userPincode, String userState, String userAvatarUrl) {
 		super();
 		this.userName = userName;
 		this.userEmail = userEmail;
@@ -47,10 +50,11 @@ public class User {
 		this.userCity = userCity;
 		this.userPincode = userPincode;
 		this.userState = userState;
+		this.userAvatarUrl = userAvatarUrl;
 	}
 	
 	public User(String userName, String userEmail, String userPhone, String userGender, String userAddress,
-			String userCity, String userPincode, String userState) {
+			String userCity, String userPincode, String userState, String userAvatarUrl) {
 		super();
 		this.userName = userName;
 		this.userEmail = userEmail;
@@ -60,6 +64,7 @@ public class User {
 		this.userCity = userCity;
 		this.userPincode = userPincode;
 		this.userState = userState;
+		this.userAvatarUrl = userAvatarUrl;
 	}
 
 	public int getUserId() {
@@ -150,4 +155,11 @@ public class User {
 		this.userState = userState;
 	}
 	
+	public String getUserAvatarUrl() {
+		return userAvatarUrl;
+	}
+
+	public void setUserAvatarUrl(String userAvatarUrl) {
+		this.userAvatarUrl = userAvatarUrl;
+	}
 }

@@ -19,6 +19,7 @@ label {
 </style>
 <div class="container px-3 py-3">
 	<h3>Thông tin cá nhân</h3>
+	<!-- <form id="update-user" action="UpdateUserServlet" method="post" enctype="multipart/form-data"> -->
 	<form id="update-user" action="UpdateUserServlet" method="post">
 		<input type="hidden" name="operation" value="updateUser">
 		<div class="row">
@@ -68,15 +69,26 @@ label {
 
 			</div>
 		</div>
-		<div class="mt-2">
+		<div class="row">
+			<div class="col-md-6 mt-2">
 			<label class="form-label">Địa chỉ</label> 
 			<input type="text"
 				name="address" placeholder="Địa chỉ"
 				class="form-control" value="<%=user1.getUserAddress()%>">
 		</div>
+			<div class="col-md-6 mt-2" style="display: none;">
+				<div class="mb-3">
+					<label for="formFile" class="form-label"><b>Hinh ảnh</b></label> 
+					<input class="form-control" type="file" accept="image/*" name="profile_img" id="formFile">
+					<img id="imagePreview" src="" alt="Image Preview" style="max-height: 100px; display: none;">
+				</div>
+			</div>
+		</div>
+		
 		<div class="row">
 			<div class="col-md-6 mt-2">
-				<label class="form-label">Quận/Huyện</label> <input class="form-control"
+				<label class="form-label">Quận/Huyện</label> 
+				<input class="form-control"
 					type="text" name="city" placeholder="Quận/Huyện"
 					value="<%=user1.getUserCity()%>">
 			</div>
@@ -110,7 +122,20 @@ label {
 	</form>
 </div>
 
-
+<script>
+	document.getElementById('formFile').addEventListener('change', function(event) {
+		const file = event.target.files[0];
+		if (file) {
+			const reader = new FileReader();
+			reader.onload = function(e) {
+				const img = document.getElementById('imagePreview');
+				img.src = e.target.result;
+				img.style.display = 'block';
+			};
+			reader.readAsDataURL(file);
+		}
+	});
+</script>
 
 
 

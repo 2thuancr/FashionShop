@@ -36,8 +36,8 @@ public class RegisterServlet extends HttpServlet {
 			String userPincode = request.getParameter("pincode");
 			String userState = request.getParameter("state");
 
-			User user = new User(userName, userEmail, userPassword, userPhone, userGender, userAddress, userCity,
-					userPincode, userState);
+			String userAvatarUrl = "profile.png";
+			User user = new User(userName, userEmail, userPassword, userPhone, userGender, userAddress, userCity, userPincode, userState, userAvatarUrl);
 			UserDao userDao = new UserDao(ConnectionProvider.getConnection());
 			boolean flag = userDao.saveUser(user);
 

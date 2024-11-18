@@ -34,6 +34,9 @@ List<Category> categoryList = catDao.getAllCategories();
 	color: white;
 }
 </style>
+
+<link rel="icon" href="${pageContext.request.contextPath}/favicon.ico" type="image/x-icon">
+
 <nav class="navbar navbar-expand-lg custom-color" style="font-size: smaller; padding: 0px;" data-bs-theme="dark">
 
 	<!-- admin nav bar -->

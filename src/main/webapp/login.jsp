@@ -59,11 +59,9 @@ label{
 						</div>
 
 						<hr/>
-						<div class="mt-3 text-center"></div>
+						<div class="mt-3 text-center">
 							<div>
-								Bạn là Quản lý? Đăng nhập 
-								<a href="adminlogin.jsp"
-									style="text-decoration: none"> tại đây</a>
+								Bạn là Quản lý? Đăng nhập <a href="adminlogin.jsp" style="text-decoration: none"> tại đây</a>.
 							</div>
 						</div>
 					</div>  

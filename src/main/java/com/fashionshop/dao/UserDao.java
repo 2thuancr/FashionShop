@@ -19,8 +19,8 @@ public class UserDao {
 		this.con = con;
 	}
 
-	public boolean saveUser(User user) {
-		boolean flag = false;
+	public String saveUser(User user) {
+		String errorMessage = null;
 
 		try {
 			String query = "insert into users(name, email, password, phone, gender, address, city, pincode, state) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -36,12 +36,12 @@ public class UserDao {
 			psmt.setString(9, user.getUserState());
 
 			psmt.executeUpdate();
-			flag = true;
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+			errorMessage = e.getMessage();
 		}
-		return flag;
+		return errorMessage;
 	}
 
 	public User getUserByEmailPassword(String userEmail, String userPassword) {

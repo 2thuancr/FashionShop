@@ -57,12 +57,20 @@ List<Category> categoryList = catDao.getAllCategories();
 
 			<div class="container text-end">
 				<ul class="navbar-nav justify-content-end">
-					<li class="nav-item"><a class="nav-link" aria-current="page"
-						href="admin.jsp"><%=admin.getName()%></a></li>
-					<li class="nav-item"><a class="nav-link" aria-current="page"
-						href="LogoutServlet?user=admin"><i
-							class="fa-solid fa-user-slash fa-sm" style="color: #fafafa;"></i>&nbsp;Đăng
-							xuất</a></li>
+					<li class="nav-item"></li>
+						<a class="nav-link" aria-current="page"
+						href="admin.jsp">Quản lý</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" aria-current="page"
+						href="admin.jsp"><%=admin.getName()%></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" aria-current="page" href="LogoutServlet?user=admin">
+							<i class="fa-solid fa-user-slash fa-sm" style="color: #fafafa;"></i>
+							&nbsp;Đăng xuất
+						</a>
+					</li>
 				</ul>
 			</div>
 		</div>

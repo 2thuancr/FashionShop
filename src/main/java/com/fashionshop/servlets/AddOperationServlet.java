@@ -45,8 +45,8 @@ public class AddOperationServlet extends HttpServlet {
 			Category category = new Category(categoryName, part.getSubmittedFileName());
 			boolean flag = catDao.saveCategory(category);
 
-			String path = request.getServletContext().getRealPath("/") + "Product_imgs" + File.separator
-					+ part.getSubmittedFileName();
+			String path = request.getServletContext().getRealPath("/") 
+				+ "Product_imgs" + File.separator + part.getSubmittedFileName();
 
 			try {
 				FileOutputStream fos = new FileOutputStream(path);
@@ -66,6 +66,8 @@ public class AddOperationServlet extends HttpServlet {
 			} else {
 				message = new Message("Có lỗi phát sinh! Vui lòng thử lại!!", "error", "alert-danger");
 			}
+
+			System.out.println("[AddOperationServlet][addCategory] message: " + message);
 			session.setAttribute("message", message);
 			response.sendRedirect("display_category.jsp");
 
@@ -73,22 +75,52 @@ public class AddOperationServlet extends HttpServlet {
 
 			// add product to database
 			String pName = request.getParameter("name");
+			if (pName.isEmpty()) {
+				System.out.println("[AddOperationServlet][addProduct] Tên sản phẩm không được để trống!!");
+				message = new Message("Tên sản phẩm không được để trống!!", "error", "alert-danger");
+				session.setAttribute("message", message);
+				response.sendRedirect("display_products.jsp");
+				return;
+			}
+
 			String pDesc = request.getParameter("description");
+
 			int pPrice = Integer.parseInt(request.getParameter("price"));
+			if (pPrice < 0) {
+				System.out.println("[AddOperationServlet][addProduct] Giá sản phẩm không hợp lệ!!");
+				message = new Message("Giá sản phẩm không hợp lệ!!", "error", "alert-danger");
+				session.setAttribute("message", message);
+				response.sendRedirect("display_products.jsp");
+				return;
+			}
+
 			int pDiscount = Integer.parseInt(request.getParameter("discount"));
 			if (pDiscount < 0 || pDiscount > 100) {
-				pDiscount = 0;
+				System.out.println("[AddOperationServlet][addProduct] Giá trị giảm giá không hợp lệ!!");
+				message = new Message("Giá trị giảm giá không hợp lệ!!", "error", "alert-danger");
+				session.setAttribute("message", message);
+				response.sendRedirect("display_products.jsp");
+				return;
 			}
+
 			int pQuantity = Integer.parseInt(request.getParameter("quantity"));
+			if (pQuantity < 0) {
+				System.out.println("[AddOperationServlet][addProduct] Số lượng sản phẩm không hợp lệ!!");
+				message = new Message("Số lượng sản phẩm không hợp lệ!!", "error", "alert-danger");
+				session.setAttribute("message", message);
+				response.sendRedirect("display_products.jsp");
+				return;
+			}
+
 			Part part = request.getPart("photo");
 			int categoryType = Integer.parseInt(request.getParameter("categoryType"));
 
-			Product product = new Product(pName, pDesc, pPrice, pDiscount, pQuantity, part.getSubmittedFileName(),
-					categoryType);
+			Product product = new Product(pName, pDesc, pPrice, pDiscount, pQuantity, part.getSubmittedFileName(), categoryType);
 			boolean flag = pdao.saveProduct(product);
 
-			String path = request.getServletContext().getRealPath("/") + "Product_imgs" + File.separator
-					+ part.getSubmittedFileName();
+			String path = request.getServletContext().getRealPath("/") 
+				+ "Product_imgs" + File.separator + part.getSubmittedFileName();
+
 			try {
 				FileOutputStream fos = new FileOutputStream(path);
 				InputStream is = part.getInputStream();
@@ -106,13 +138,30 @@ public class AddOperationServlet extends HttpServlet {
 			} else {
 				message = new Message("Có lỗi phát sinh! Vui lòng thử lại!!", "error", "alert-danger");
 			}
+			System.out.println("[AddOperationServlet][addProduct] message: " + message);
 			session.setAttribute("message", message);
 			response.sendRedirect("display_products.jsp");
 
 		} else if (operation.trim().equals("updateCategory")) {
 
 			int cid = Integer.parseInt(request.getParameter("cid"));
+			if (cid <= 0) {
+				System.out.println("[AddOperationServlet][updateCategory] Có lỗi phát sinh! Vui lòng thử lại!!");
+				message = new Message("Có lỗi phát sinh! Vui lòng thử lại!!", "error", "alert-danger");
+				session.setAttribute("message", message);
+				response.sendRedirect("update_category.jsp");
+				return;
+			}
+
 			String name = request.getParameter("category_name");
+			if (name.isEmpty()) {
+				System.out.println("[AddOperationServlet][updateCategory] Tên danh mục không được để trống!");
+				message = new Message("Tên danh mục không được để trống!!", "error", "alert-danger");
+				session.setAttribute("message", message);
+				response.sendRedirect("update_category.jsp");
+				return;
+			}
+
 			Part part = request.getPart("category_img");
 			if (part.getSubmittedFileName().isEmpty()) {
 				String image = request.getParameter("image");
@@ -121,8 +170,8 @@ public class AddOperationServlet extends HttpServlet {
 			} else {
 				Category category = new Category(cid, name, part.getSubmittedFileName());
 				catDao.updateCategory(category);
-				String path = request.getServletContext().getRealPath("/") + "Product_imgs" + File.separator
-						+ part.getSubmittedFileName();
+				String path = request.getServletContext().getRealPath("/") 
+					+ "Product_imgs" + File.separator + part.getSubmittedFileName();
 				try {
 					FileOutputStream fos = new FileOutputStream(path);
 					InputStream is = part.getInputStream();
@@ -136,6 +185,7 @@ public class AddOperationServlet extends HttpServlet {
 					e.printStackTrace();
 				}
 			}
+			System.out.println("[AddOperationServlet][updateCategory] Cập nhật danh mục thành công!!");
 			message = new Message("Cập nhật danh mục thành công!!", "success", "alert-success");
 			session.setAttribute("message", message);
 			response.sendRedirect("display_category.jsp");
@@ -143,20 +193,64 @@ public class AddOperationServlet extends HttpServlet {
 		} else if (operation.trim().equals("deleteCategory")) {
 
 			int cid = Integer.parseInt(request.getParameter("cid"));
+			if (cid <= 0) {
+				System.out.println("[AddOperationServlet][deleteCategory] Có lỗi phát sinh! Vui lòng thử lại!!");
+				message = new Message("Có lỗi phát sinh! Vui lòng thử lại!!", "error", "alert-danger");
+				session.setAttribute("message", message);
+				response.sendRedirect("display_category.jsp");
+				return;
+			}
 			catDao.deleteCategory(cid);
 			response.sendRedirect("display_category.jsp");
 
 		} else if (operation.trim().equals("updateProduct")) {
 
 			int pid = Integer.parseInt(request.getParameter("pid"));
+			if (pid <= 0) {
+				System.out.println("[AddOperationServlet][updateProduct] Có lỗi phát sinh! Vui lòng thử lại!!");
+				message = new Message("Có lỗi phát sinh! Vui lòng thử lại!!", "error", "alert-danger");
+				session.setAttribute("message", message);
+				response.sendRedirect("update_product.jsp");
+				return;
+			}
+
 			String name = request.getParameter("name");
+			if (name.isEmpty()) {
+				System.out.println("[AddOperationServlet][updateProduct] Tên sản phẩm không được để trống!!");
+				message = new Message("Tên sản phẩm không được để trống!!", "error", "alert-danger");
+				session.setAttribute("message", message);
+				response.sendRedirect("update_product.jsp");
+				return;
+			}
+
 			float price = Float.parseFloat(request.getParameter("price"));
+			if (price < 0) {
+				System.out.println("[AddOperationServlet][updateProduct] Giá sản phẩm không hợp lệ!!");
+				message = new Message("Giá sản phẩm không hợp lệ!!", "error", "alert-danger");
+				session.setAttribute("message", message);
+				response.sendRedirect("update_product.jsp");
+				return;
+			}
+
 			String description = request.getParameter("description");
 			int quantity = Integer.parseInt(request.getParameter("quantity"));
+			if (quantity < 0) {
+				System.out.println("[AddOperationServlet][updateProduct] Số lượng sản phẩm không hợp lệ!!");
+				message = new Message("Số lượng sản phẩm không hợp lệ!!", "error", "alert-danger");
+				session.setAttribute("message", message);
+				response.sendRedirect("update_product.jsp");
+				return;
+			}
+
 			int discount = Integer.parseInt(request.getParameter("discount"));
 			if (discount < 0 || discount > 100) {
-				discount = 0;
+				System.out.println("[AddOperationServlet][updateProduct] Giá trị giảm giá không hợp lệ!!");
+				message = new Message("Giá trị giảm giá không hợp lệ!!", "error", "alert-danger");
+				session.setAttribute("message", message);
+				response.sendRedirect("update_product.jsp");
+				return;
 			}
+			
 			Part part = request.getPart("product_img");
 			int cid = Integer.parseInt(request.getParameter("categoryType"));
 			if (cid == 0) {
@@ -168,12 +262,11 @@ public class AddOperationServlet extends HttpServlet {
 				pdao.updateProduct(product);
 			} else {
 
-				Product product = new Product(pid, name, description, price, discount, quantity,
-						part.getSubmittedFileName(), cid);
+				Product product = new Product(pid, name, description, price, discount, quantity, part.getSubmittedFileName(), cid);
 				pdao.updateProduct(product);
 				// product image upload
-				String path = request.getServletContext().getRealPath("/") + "Product_imgs" + File.separator
-						+ part.getSubmittedFileName();
+				String path = request.getServletContext().getRealPath("/") 
+					+ "Product_imgs" + File.separator + part.getSubmittedFileName();
 				try {
 					FileOutputStream fos = new FileOutputStream(path);
 					InputStream is = part.getInputStream();
@@ -187,6 +280,7 @@ public class AddOperationServlet extends HttpServlet {
 					e.printStackTrace();
 				}
 			}
+			System.out.println("[AddOperationServlet][updateProduct] Cập nhật sản phẩm thành công!!");
 			message = new Message("Cập nhật sản phẩm thành công!!", "success", "alert-success");
 			session.setAttribute("message", message);
 			response.sendRedirect("display_products.jsp");
@@ -194,6 +288,13 @@ public class AddOperationServlet extends HttpServlet {
 		} else if (operation.trim().equals("deleteProduct")) {
 
 			int pid = Integer.parseInt(request.getParameter("pid"));
+			if (pid <= 0) {
+				System.out.println("[AddOperationServlet][deleteProduct] Có lỗi phát sinh! Vui lòng thử lại!!");
+				message = new Message("Có lỗi phát sinh! Vui lòng thử lại!!", "error", "alert-danger");
+				session.setAttribute("message", message);
+				response.sendRedirect("display_products.jsp");
+				return;
+			}
 			pdao.deleteProduct(pid);
 			response.sendRedirect("display_products.jsp");
 

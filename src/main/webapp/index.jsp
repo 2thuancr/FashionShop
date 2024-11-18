@@ -135,7 +135,7 @@ List<Product> topDeals = productDao.getDiscountedProducts();
 		<h3>Hot Deals</h3>
 		<div class="row row-cols-1 row-cols-md-5 g-3">
 			<%
-			for (int i = 0; i < Math.min(4, topDeals.size()); i++) {
+			for (int i = 0; i < Math.min(5, topDeals.size()); i++) {
 			%>
 			<div class="col">
 				<a href="viewProduct.jsp?pid=<%=topDeals.get(i).getProductId()%>"

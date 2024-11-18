@@ -17,7 +17,7 @@ label {
 	<!--navbar -->
 	<%@include file="Components/navbar.jsp"%>
 
-	<div class="container-fluid mt-4">
+	<div class="container-fluid my-4">
 		<div class="row g-0">
 			<div class="col-md-6 offset-md-3">
 				<div class="card">
@@ -49,13 +49,13 @@ label {
 							<div class="row">
 								<div class="col-md-6 mt-2">
 									<label class="form-label">Số điện thoại</label> 
-									<input
+									<input required
 										type="number" name="user_mobile_no"
 										placeholder="Số điện thoại" class="form-control">
 								</div>
 								<div class="col-md-6 mt-5">
 									<label class="form-label pe-3">Giới tính</label> 
-									<input
+									<input checked
 										class="form-check-input" type="radio" name="gender"
 										value="Male"> 
 									<span class="form-check-label pe-3 ps-1">
@@ -100,7 +100,8 @@ label {
 									</select>
 								</div>
 								<div class="col-md-6 mt-2">
-									<label class="form-label">Mật khẩu</label> <input
+									<label class="form-label">Mật khẩu</label> 
+									<input
 										type="password" name="user_password"
 										placeholder="Mật khẩu" class="form-control" required>
 								</div>
@@ -113,7 +114,7 @@ label {
 							<div class="mt-3 text-center">
 								<h6>
 									Bạn đã có tài khoản?
-									<a href="login.jsp" style="text-decoration: none"> Đăng nhâp</a>
+									<a href="login.jsp" style="text-decoration: none"> Đăng nhập</a>
 								</h6>
 							</div>
 						</form>

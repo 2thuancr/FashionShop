@@ -26,7 +26,9 @@ if (activeAdmin == null) {
 	int cid = Integer.parseInt(request.getParameter("cid"));
 	Category category = catDao.getCategoryById(cid);
 	%>
-	<div class="container mt-5">
+	<div class="container my-5">
+		<%@include file="Components/alert_message.jsp"%>
+
 		<div class="row row-cols-1 row-cols-md-1 offset-md-2">
 			<div class="col">
 				<div class="card w-75">
@@ -39,8 +41,9 @@ if (activeAdmin == null) {
 							<input type="hidden" name="operation" value="updateCategory">
 							<div class="mb-3">
 								<label class="form-label"><b>Tên danh mục</b></label> 
-								<input
-									type="text" name="category_name" value="<%=category.getCategoryName()%>" class="form-control" >
+								<input required type="text" 
+									name="category_name" 
+									value="<%=category.getCategoryName()%>" class="form-control" >
 							</div>
 							<div class="mb-3">
 								<label class="form-label"><b>Ảnh danh mục</b></label>
@@ -49,8 +52,8 @@ if (activeAdmin == null) {
 							<div class="mb-3">
 								<label class="form-label"><b>Tải ảnh lên:&nbsp;</b></label><%=category.getCategoryImage()%>&emsp;
 									<img
-									src="Product_imgs\<%=category.getCategoryImage()%>"
-									style="width: 80px; height: 80px; width: auto;">
+										src="Product_imgs\<%=category.getCategoryImage()%>"
+										style="width: 80px; height: 80px; width: auto;">
 								<input type="hidden" name="image" value="<%=category.getCategoryImage()%>">
 							</div>
 						</div>

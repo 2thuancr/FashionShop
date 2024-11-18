@@ -29,7 +29,9 @@ if (activeAdmin == null) {
 	ProductDao productDao = new ProductDao(ConnectionProvider.getConnection());
 	Product product = productDao.getProductsByProductId(pid);
 	%>
-	<div class="container mt-3">
+	<div class="container my-3">
+		<%@include file="Components/alert_message.jsp"%>
+
 		<div class="row ">
 			<div class="col">
 				<div class="card">
@@ -42,57 +44,69 @@ if (activeAdmin == null) {
 							<input type="hidden" name="operation" value="updateProduct">
 							<div class="row">
 								<div class="col-md-6 mb-2">
-									<label class="form-label"><b>Tên sản phẩm</b></label> <input
+									<label class="form-label"><b>Tên sản phẩm</b></label> 
+									<input required
 										type="text" name="name" value="<%=product.getProductName()%>"
 										class="form-control">
 								</div>
 								<div class="col-md-6 mb-2">
-									<label class="form-label"><b>Giá</b></label> <input
+									<label class="form-label"><b>Giá</b></label> 
+									<input min="0"
 										class="form-control" type="number" name="price"
 										value="<%=product.getProductPrice()%>" required>
 								</div>
 							</div>
 							<div class="mb-2">
 								<label class="form-label"><b>Mô tả</b></label>
-								<textarea class="form-control" name="description" rows="3"><%=product.getProductDescription()%></textarea>
+								<textarea class="form-control" name="description" rows="3">
+									<%=product.getProductDescription()%>
+								</textarea>
 							</div>
 							<div class="row">
 								<div class="col-md-6 mb-2">
-									<label class="form-label"><b>Số lượng</b></label> <input
+									<label class="form-label"><b>Số lượng</b></label> 
+									<input required min="0"
 										type="number" name="quantity"
 										value="<%=product.getProductQunatity()%>" class="form-control">
 								</div>
 								<div class="col-md-6 mb-2">
-									<label class="form-label"><b>Phần trăm giảm giá</b></label> <input
+									<label class="form-label"><b>Phần trăm giảm giá</b></label> 
+									<input min="0"
 										type="number" name="discount" onblur="validate()"
 										value="<%=product.getProductDiscount()%>" class="form-control">
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-6 mb-2">
-									<label class="form-label"><b>Hình ảnh</b></label><input
+									<label class="form-label"><b>Hình ảnh</b></label>
+									<input
 										class="form-control" type="file" name="product_img">
 								</div>
 								<div class="col-md-6 mb-2">
-									<label class="form-label"><b>Chọn danh mục</b></label> <select
+									<label class="form-label"><b>Chọn danh mục</b></label> 
+									<select
 										name="categoryType" class="form-control">
 										<option value="0"></option>
 										<%
 										for (Category c : categoryList) {
 										%>
 										<option value="<%=c.getCategoryId()%>">
-											<%=c.getCategoryName()%></option>
+											<%=c.getCategoryName()%>
+										</option>
 										<%
 										}
 										%>
-									</select> <input type="hidden" name="category"
-										value="<%=product.getCategoryId()%>">
+									</select> 
+									<input type="hidden" name="category" value="<%=product.getCategoryId()%>">
 								</div>
 							</div>
 							<div class="mb-3">
-								<label class="form-label"><b>Tải ảnh lên:&nbsp;</b></label><%=product.getProductImages()%>
-								&emsp;<img src="Product_imgs\<%=product.getProductImages()%>"
-									style="width: 80px; height: 80px; width: auto;"> <input
+								<label class="form-label"><b>Tải ảnh lên:&nbsp;</b></label>
+								<%=product.getProductImages()%>
+								&emsp;
+								<img src="Product_imgs\<%=product.getProductImages()%>"
+									style="width: 80px; height: 80px; width: auto;"> 
+								<input
 									type="hidden" name="image"
 									value="<%=product.getProductImages()%>">
 							</div>

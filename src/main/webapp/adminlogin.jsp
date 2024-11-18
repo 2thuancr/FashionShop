@@ -18,7 +18,9 @@ label {
 	<%@include file="Components/navbar.jsp"%>
 
 	<div class="container-fluid">
-		<div class="row mt-5">
+		<%@include file="Components/alert_message.jsp"%>
+
+		<div class="row my-5">
 			<div class="col-md-4 offset-md-4">
 				<div class="card">
 					<div class="card-header px-5">
@@ -27,7 +29,6 @@ label {
 								class="img-fluid">
 						</div>
 						<h3 class="text-center">Đăng nhập Admin</h3>
-						<%@include file="Components/alert_message.jsp"%>
 					</div>
 					<div class="card-body px-5">
 						<!--login-form-->
@@ -50,11 +51,9 @@ label {
 							</div>
 
 							<hr/>
-							<div class="mt-3 text-center"></div>
+							<div class="mt-3 text-center">
 								<div>
-									Đăng nhập với tư cách người dùng  
-									<a href="login.jsp"
-										style="text-decoration: none"> tại đây</a>
+									Đăng nhập với tư cách Khách hàng <a href="login.jsp" style="text-decoration: none"> tại đây</a>.
 								</div>
 							</div>
 						</form>

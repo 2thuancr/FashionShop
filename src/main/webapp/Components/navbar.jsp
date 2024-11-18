@@ -6,8 +6,7 @@
 <%@page import="com.fashionshop.entities.Category"%>
 <%@page import="com.fashionshop.helper.ConnectionProvider"%>
 <%@page import="com.fashionshop.dao.CategoryDao"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 User user = (User) session.getAttribute("activeUser");
 Admin admin = (Admin) session.getAttribute("activeAdmin");
@@ -35,8 +34,7 @@ List<Category> categoryList = catDao.getAllCategories();
 }
 </style>
 
-<link rel="icon" href="${pageContext.request.contextPath}/favicon.ico" type="image/x-icon">
-
+<link rel="icon" href="${pageContext.request.contextPath}/favicon.ico" type="image/x-icon"> 
 <nav class="navbar navbar-expand-lg custom-color" style="font-size: smaller; padding: 0px;" data-bs-theme="dark">
 
 	<!-- admin nav bar -->

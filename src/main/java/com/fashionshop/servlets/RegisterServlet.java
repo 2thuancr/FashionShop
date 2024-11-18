@@ -3,6 +3,7 @@ package com.fashionshop.servlets;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,6 +27,15 @@ public class RegisterServlet extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		
 		HttpSession session = request.getSession();
+		session.setMaxInactiveInterval(30 * 60); // 30 phút
+		
+		Cookie sessionCookie = new Cookie("JSESSIONID", session.getId());
+		sessionCookie.setPath("/");  // Đảm bảo cookie có thể được truy cập toàn bộ ứng dụng
+		if (request.isSecure()) {
+		    sessionCookie.setSecure(true);  // Chỉ gửi cookie qua kết nối HTTPS
+		}
+		response.addCookie(sessionCookie);
+
 		Message message;
 
 		try {
